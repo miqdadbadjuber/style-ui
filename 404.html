@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;450;500;550;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    try {
+      const isMobileOrTablet = window.innerWidth <= 1024;
+      const deviceKey = isMobileOrTablet ? 'style_ui_theme_mobile' : 'style_ui_theme_desktop';
+      const savedTheme = localStorage.getItem(deviceKey);
+      const theme = savedTheme || (isMobileOrTablet ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (e) {}
+  </script>
+  <title>Page not found - Style UI</title>
+  <meta name="description" content="This address does not match any page in the Style UI catalog.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f8fafc">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <style>
+    /* Self-contained so the page renders when opened straight from disk. */
+    :root {
+      --bg-canvas: #0b0f17;
+      --bg-surface: #131b26;
+      --bg-surface-hover: #1a2433;
+      --border-subtle: #243247;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --radius-md: 10px;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    [data-theme="light"] {
+      --bg-canvas: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-hover: #f1f5f9;
+      --border-subtle: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: var(--font-sans);
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--text-primary);
+      outline-offset: 3px;
+    }
+
+    .not-found {
+      width: 100%;
+      max-width: 620px;
+    }
+
+    .not-found-brand {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+
+    .not-found-code {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 5.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .not-found-copy {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 48ch;
+      margin-bottom: 2.25rem;
+    }
+
+    .not-found-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .not-found-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 1.2rem;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .not-found-primary {
+      background: var(--text-primary);
+      color: var(--bg-canvas);
+    }
+
+    .not-found-primary:hover {
+      opacity: 0.85;
+    }
+
+    .not-found-secondary {
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      color: var(--text-primary);
+    }
+
+    .not-found-secondary:hover {
+      background: var(--bg-surface-hover);
+      border-color: var(--text-secondary);
+    }
+
+    .not-found-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .not-found-links a:hover {
+      color: var(--text-primary);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="not-found">
+    <a class="not-found-brand" href="/">Style UI</a>
+
+    <p class="not-found-code">404</p>
+    <h1>This page is not in the catalog.</h1>
+    <p class="not-found-copy">The link may be out of date, or the tool was removed. Every entry is reachable from the homepage.</p>
+
+    <div class="not-found-actions">
+      <a class="not-found-primary" href="/">Back to the homepage</a>
+      <a class="not-found-secondary" href="/ui-components">Browse UI components</a>
+    </div>
+
+    <nav class="not-found-links" aria-label="Other categories">
+      <a href="/background-generator">Background generators</a>
+      <a href="/design-md">Design.md generators</a>
+      <a href="/#catalog">Full catalog</a>
+    </nav>
+  </main>
+
+  <script>
+    // Root-relative links need a server, so map them for local files.
+    if (location.protocol === 'file:') {
+      document.querySelectorAll('a[href^="/"]').forEach((link) => {
+        const target = link.getAttribute('href').replace(/^\//, '');
+        link.setAttribute('href', target.startsWith('#') ? `index.html${target}` : (target ? `${target}/index.html` : 'index.html'));
+      });
+    }
+  </script>
+</body>
+</html>

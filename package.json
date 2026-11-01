@@ -1,0 +1,33 @@
+{
+  "name": "style-ui",
+  "version": "1.0.0",
+  "description": "A curated directory of UI component libraries, design.md generators, and background generators.",
+  "type": "commonjs",
+  "keywords": [
+    "ui",
+    "catalog",
+    "directory",
+    "css",
+    "html",
+    "javascript",
+    "design-tools",
+    "background-generator"
+  ],
+  "author": "Miqdad Badjuber",
+  "license": "MIT",
+  "homepage": "https://style.ai.id",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miqdadbadjuber/style-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/miqdadbadjuber/style-ui/issues"
+  },
+  "scripts": {
+    "serve": "npx serve .",
+    "validate": "node scripts/validate.js",
+    "optimize": "python scripts/optimize-assets.py",
+    "cleanup": "python scripts/cleanup-assets.py",
+    "brand": "python scripts/generate-brand-assets.py"
+  }
+}

@@ -1,0 +1,2905 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function() {
+      try {
+        var isMobileOrTab = window.innerWidth <= 1024;
+        var deviceKey = isMobileOrTab ? 'style_ui_theme_mobile' : 'style_ui_theme_desktop';
+        var theme = localStorage.getItem(deviceKey) || (isMobileOrTab ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch(e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style UI - Curated UI Libraries, Design Tools & Backgrounds</title>
+  <meta name="description" content="A hand-picked directory of UI component libraries, design.md generators, and background generators for web designers and developers.">
+  <meta name="author" content="Miqdad Badjuber">
+  <link rel="canonical" href="https://style.ai.id/">
+  <meta name="theme-color" content="#f8fafc">
+
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Style UI">
+  <meta property="og:title" content="Style UI - Curated UI Libraries, Design Tools & Backgrounds">
+  <meta property="og:description" content="A hand-picked directory of UI component libraries, design.md generators, and background generators for web designers and developers.">
+  <meta property="og:url" content="https://style.ai.id/">
+  <meta property="og:image" content="https://style.ai.id/assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Style UI homepage in light mode with the headline AI will never understand your taste. Find yours here.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Style UI - Curated UI Libraries, Design Tools & Backgrounds">
+  <meta name="twitter:description" content="A hand-picked directory of UI component libraries, design.md generators, and background generators for web designers and developers.">
+  <meta name="twitter:image" content="https://style.ai.id/assets/images/og-image.jpg">
+  <meta name="twitter:image:alt" content="Style UI homepage in light mode with the headline AI will never understand your taste. Find yours here.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Style UI",
+    "url": "https://style.ai.id/",
+    "description": "A hand-picked directory of UI component libraries, design.md generators, and background generators for web designers and developers.",
+    "inLanguage": "en",
+    "publisher": {
+      "@type": "Person",
+      "name": "Miqdad Badjuber",
+      "url": "https://github.com/miqdadbadjuber"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="assets/images/hero-custom-bg.webp">
+  <link rel="preload" as="image" href="assets/images/hero-light-bg.webp">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <script src="assets/vendor/lenis/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" integrity="sha384-XmJ9SoHtVOHoQUcKvFAzVXwdkKo1Ie3bhmSoIAkcdsHGaIrVJIkmozyq0FJeb/Ly" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" integrity="sha384-wl5TeDVvOWt30Pbf8aSo2ZrzsOjddu3avOBvHe+p+OhJt9gP6w9YXmDkN5DK2/dF" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js" integrity="sha384-SWJ0lLVRoipvHh59xj0pL7uC7Ih51F+5smaFtrG+2nr+TlDZU5SYJHmxfolbeNTr" crossorigin="anonymous"></script>
+
+  <style>
+
+:root {
+  /* Dark Theme Tokens (Default) */
+  --bg-canvas: #0b0f17;
+  --bg-surface: #131b26;
+  --bg-surface-hover: #1a2433;
+  --bg-subtle: #1e293b;
+  --bg-input: #101723;
+  --border-subtle: #243247;
+  --border-accent: #3b82f6;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-accent: #60a5fa;
+  --accent-primary: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-subtle: rgba(37, 99, 235, 0.15);
+  --badge-free-bg: rgba(16, 185, 129, 0.15);
+  --badge-free-text: #34d399;
+  --badge-os-bg: rgba(59, 130, 246, 0.15);
+  --badge-os-text: #60a5fa;
+  --badge-freemium-bg: rgba(245, 158, 11, 0.15);
+  --badge-freemium-text: #fbbf24;
+
+  /* Sizing and Spacing */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.25);
+  --shadow-drawer: -8px 0 32px rgba(0, 0, 0, 0.45);
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-rank: 'Nunito', ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", sans-serif;
+  --font-mono: 'JetBrains Mono', "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+[data-theme="light"] {
+  --bg-canvas: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f1f5f9;
+  --bg-subtle: #e2e8f0;
+  --bg-input: #ffffff;
+  --border-subtle: #cbd5e1;
+  --border-accent: #2563eb;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-accent: #1d4ed8;
+  --accent-primary: #2563eb;
+  --accent-hover: #1e40af;
+  --accent-subtle: rgba(37, 99, 235, 0.1);
+  --badge-free-bg: rgba(16, 185, 129, 0.12);
+  --badge-free-text: #059669;
+  --badge-os-bg: rgba(37, 99, 235, 0.12);
+  --badge-os-text: #1d4ed8;
+  --badge-freemium-bg: rgba(217, 119, 6, 0.12);
+  --badge-freemium-text: #b45309;
+  --shadow-card: 0 4px 16px rgba(15, 23, 42, 0.06);
+  --shadow-drawer: -8px 0 32px rgba(15, 23, 42, 0.15);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a, button, [role="button"], [role="tab"], input {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body {
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Keyboard accessibility focus ring */
+:focus-visible {
+  outline: 2px solid var(--border-accent);
+  outline-offset: 2px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.site-header,
+.hero-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem 4rem;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.nav-pill-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.15rem;
+  padding: 0.35rem 0.5rem 0.35rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-full);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.3), 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-pill-bar:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4), 0 10px 36px rgba(0, 0, 0, 0.5);
+}
+
+.nav-brand-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.nav-brand-link:hover {
+  opacity: 0.88;
+}
+
+.nav-brand-logo {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  object-fit: cover;
+  display: block;
+}
+
+.nav-brand-text {
+  font-family: 'Plus Jakarta Sans', var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  transition: color 0.5s ease;
+}
+
+.nav-pill-divider {
+  width: 1px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 0.15rem;
+  transition: background-color 0.5s ease;
+}
+
+.nav-center-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+.hero-nav-link {
+  font-family: 'Plus Jakarta Sans', var(--font-sans);
+  font-size: 0.825rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.hero-nav-link:hover {
+  color: #ffffff;
+}
+
+.nav-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.2rem 0.35rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.theme-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.45);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-icon.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.nav-right-actions,
+.nav-right-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  vertical-align: middle;
+}
+
+.nav-btn-github,
+.nav-btn-started {
+  font-family: 'Plus Jakarta Sans', var(--font-sans);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  box-sizing: border-box;
+  font-size: 0.775rem;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-btn-github {
+  gap: 0.4rem;
+  padding: 0 0.85rem;
+  color: #ffffff;
+  background: #000000;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.nav-btn-github:hover {
+  background: #18181b;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+.nav-btn-started {
+  padding: 0 0.95rem;
+  letter-spacing: 0.01em;
+  color: #000000;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.nav-btn-started:hover {
+  background: #f4f4f5;
+  border-color: #f4f4f5;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 720px;
+  display: flex;
+  align-items: center;
+  background-color: #000000;
+  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.25) 40%, rgba(0, 0, 0, 0) 65%),
+    url('assets/images/hero-custom-bg.webp');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.18) 38%, rgba(255, 255, 255, 0) 58%),
+    url('assets/images/hero-light-bg.webp');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  pointer-events: none;
+}
+
+[data-theme="light"] .hero-section {
+  background-color: #dbeafe;
+}
+
+[data-theme="light"] .hero-section::before {
+  opacity: 0;
+}
+
+[data-theme="light"] .hero-section::after {
+  opacity: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.hero-left-column {
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  z-index: 10;
+  padding-top: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  font-family: 'Plus Jakarta Sans', var(--font-sans);
+  font-size: 0.725rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 1.35rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-main-title {
+  font-family: 'Plus Jakarta Sans', var(--font-sans);
+  font-size: 3.75rem;
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  margin-bottom: 1.45rem;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.6);
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+.hero-cta-wrapper {
+  margin-bottom: 0;
+}
+
+.hero-glass-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.85rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hero-glass-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.hero-vertical-gap {
+  height: 1.75rem;
+}
+
+.hero-subtext {
+  font-family: 'Plus Jakarta Sans', var(--font-sans);
+  font-size: 0.825rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 380px;
+  margin-bottom: 1.15rem;
+  transition: color 0.5s ease;
+}
+
+.hero-antislop-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+  color: rgba(255, 255, 255, 0.72);
+  font-family: 'Plus Jakarta Sans', var(--font-sans);
+  font-size: 0.775rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.hero-antislop-link:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.antislop-glow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+  flex-shrink: 0;
+  transition: background-color 0.5s ease;
+}
+
+.hero-antislop-link strong {
+  color: #ffffff;
+  font-weight: 600;
+  transition: color 0.5s ease;
+}
+
+.antislop-arrow {
+  color: rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.hero-antislop-link:hover .antislop-arrow {
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+[data-theme="light"] {
+  background-color: #f8fafc;
+}
+
+[data-theme="light"] .nav-pill-bar {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.9), 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .nav-pill-bar:hover {
+  border-color: rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 1), 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .nav-brand-text {
+  color: #09090b;
+}
+
+[data-theme="light"] .nav-pill-divider {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .hero-nav-link {
+  color: #475569;
+}
+
+[data-theme="light"] .hero-nav-link:hover {
+  color: #09090b;
+}
+
+[data-theme="light"] .nav-theme-toggle {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .theme-toggle-icon.active {
+  color: #d97706;
+  background: rgba(245, 158, 11, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .nav-btn-github {
+  background: #09090b;
+  color: #ffffff;
+  border-color: #09090b;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .nav-btn-github:hover {
+  background: #27272a;
+}
+
+[data-theme="light"] .nav-btn-started {
+  background: #ffffff;
+  color: #09090b;
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .nav-btn-started:hover {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .hero-pill-badge {
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #334155;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .hero-main-title {
+  color: #09090b;
+  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .hero-glass-btn {
+  background: #09090b;
+  border-color: #09090b;
+  color: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .hero-glass-btn:hover {
+  background: #27272a;
+  border-color: #27272a;
+  transform: translateY(-1px);
+}
+
+[data-theme="light"] .hero-subtext {
+  color: #334155;
+  font-weight: 500;
+}
+
+[data-theme="light"] .hero-antislop-link {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #334155;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .hero-antislop-link strong {
+  color: #09090b;
+}
+
+[data-theme="light"] .hero-antislop-link:hover {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.22);
+  color: #09090b;
+}
+
+[data-theme="light"] .antislop-arrow {
+  color: #64748b;
+}
+
+/* Form controls do not inherit the page font by default. */
+html, body, button, input, select, textarea {
+  font-family: 'Plus Jakarta Sans', var(--font-sans) !important;
+}
+
+html, body {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+    /* Hidden until SplitText runs; the fallback reveals it if GSAP fails. */
+    [data-reveal-02] {
+      visibility: hidden;
+    }
+
+    body {
+      background-color: #000000 !important;
+    }
+
+    html[data-theme="dark"] .nav-pill-bar,
+    :root:not([data-theme="light"]) .nav-pill-bar {
+      background: rgba(15, 15, 16, 0.75) !important;
+      backdrop-filter: blur(28px) saturate(140%) !important;
+      -webkit-backdrop-filter: blur(28px) saturate(140%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.4),
+        0 20px 48px -12px rgba(0, 0, 0, 0.75) !important;
+      transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    html[data-theme="dark"] .nav-pill-bar:hover,
+    :root:not([data-theme="light"]) .nav-pill-bar:hover {
+      background: rgba(26, 26, 28, 0.85) !important;
+      border-color: rgba(255, 255, 255, 0.14) !important;
+      box-shadow: 
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.14),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.5),
+        0 24px 56px -12px rgba(0, 0, 0, 0.85) !important;
+    }
+
+    html[data-theme="dark"] .nav-pill-divider,
+    :root:not([data-theme="light"]) .nav-pill-divider {
+      background: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    html[data-theme="dark"] .hero-nav-link,
+    :root:not([data-theme="light"]) .hero-nav-link {
+      color: rgba(255, 255, 255, 0.6) !important;
+      font-weight: 500 !important;
+      transition: color 0.2s ease, opacity 0.2s ease !important;
+    }
+
+    html[data-theme="dark"] .hero-nav-link:hover,
+    :root:not([data-theme="light"]) .hero-nav-link:hover {
+      color: #ffffff !important;
+    }
+
+    html[data-theme="dark"] .nav-theme-toggle,
+    :root:not([data-theme="light"]) .nav-theme-toggle {
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      transition: all 0.25s ease !important;
+    }
+
+    html[data-theme="dark"] .nav-theme-toggle:hover,
+    :root:not([data-theme="light"]) .nav-theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.1) !important;
+      border-color: rgba(255, 255, 255, 0.15) !important;
+    }
+
+    .hero-subtext {
+      max-width: 460px !important;
+      line-height: 1.6 !important;
+      text-wrap: balance !important;
+    }
+
+    .hero-glass-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.45rem !important;
+      padding: 0.52rem 1.35rem !important;
+      border-radius: 9999px !important;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.01em !important;
+      width: fit-content !important;
+      border-style: solid !important;
+      border-width: 1px !important;
+      backdrop-filter: blur(24px) saturate(190%) !important;
+      -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+      transition: 
+        background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    html[data-theme="dark"] .hero-glass-btn,
+    :root:not([data-theme="light"]) .hero-glass-btn {
+      background-color: rgba(15, 15, 16, 0.75) !important;
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.22),
+        0 12px 28px -6px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    html[data-theme="dark"] .hero-glass-btn:hover,
+    :root:not([data-theme="light"]) .hero-glass-btn:hover {
+      background-color: rgba(26, 26, 28, 0.9) !important;
+      border-color: rgba(255, 255, 255, 0.22) !important;
+      box-shadow: 
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.32),
+        0 14px 32px -6px rgba(0, 0, 0, 0.7) !important;
+      transform: none !important;
+    }
+
+    [data-theme="light"] .hero-glass-btn {
+      background-color: rgba(0, 0, 0, 1) !important;
+      color: #ffffff !important;
+      border-color: rgba(0, 0, 0, 1) !important;
+      box-shadow: 
+        inset 0 1px 0 0 rgba(255, 255, 255, 0),
+        0 4px 16px -2px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    [data-theme="light"] .hero-glass-btn:hover {
+      background-color: rgba(24, 24, 27, 1) !important;
+      border-color: rgba(24, 24, 27, 1) !important;
+      color: #ffffff !important;
+      box-shadow: 
+        inset 0 1px 0 0 rgba(255, 255, 255, 0),
+        0 6px 20px -2px rgba(0, 0, 0, 0.3) !important;
+      transform: none !important;
+    }
+
+    .hero-antislop-link,
+    .hero-antislop-link:hover,
+    .hero-glass-btn,
+    .hero-glass-btn:hover {
+      transform: none !important;
+    }
+
+    .hero-antislop-link:hover {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-color: rgba(255, 255, 255, 0.22) !important;
+      box-shadow: none !important;
+    }
+
+    .hero-antislop-link .antislop-arrow,
+    .hero-antislop-link:hover .antislop-arrow {
+      transform: none !important;
+    }
+
+    html[data-theme="dark"] .hero-antislop-link .antislop-arrow,
+    :root:not([data-theme="light"]) .hero-antislop-link .antislop-arrow {
+      color: rgba(255, 255, 255, 0.85) !important;
+    }
+
+    [data-theme="light"] .hero-antislop-link .antislop-arrow {
+      color: #09090b !important;
+    }
+
+    .hero-section {
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      overflow: hidden;
+      isolation: isolate;
+      transform: translateZ(0);
+    }
+
+    .hero-section::before,
+    .hero-section::after {
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+
+    .reveal-section {
+      height: 100vh;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      position: relative;
+      background-color: #000000;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+
+    .reveal-text {
+      font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      text-align: center;
+      max-width: 860px;
+      color: #ffffff;
+      margin: 0 auto;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+/* Keep text visible if the reveal animation never starts. */
+.reveal-text {
+  opacity: 1;
+}
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --background: oklch(0.115 0.002 286); /* #0e0e11 */
+      --foreground: oklch(0.975 0.002 286); /* #fafafa */
+      --muted-foreground: oklch(0.65 0.004 286); /* #8e8e99 */
+      --card-bg: oklch(0.975 0.002 286 / 0.05);
+      --card-border: oklch(0.975 0.002 286 / 0.06);
+      --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-rank: "Nunito", ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", sans-serif;
+    }
+
+    html, body {
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    .content-body {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 44px 32px 80px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .rail-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      padding: 0 4px;
+    }
+    .rail-title {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+    }
+    .rail-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      font-size: 13px;
+      color: var(--muted-foreground);
+      text-decoration: none;
+      transition: color 0.12s ease;
+    }
+    .rail-link:hover {
+      color: var(--foreground);
+    }
+
+    .rail-row {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .g4-rank-item {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      min-width: 0;
+      position: relative;
+    }
+    .g4-rank {
+      font-family: var(--font-rank);
+      font-size: 86px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: rgba(255, 255, 255, 0.08);
+      user-select: none;
+      margin-right: -14px;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+      transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .g4-rank-item:hover .g4-rank {
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .g4-card {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .g4-pic {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 9px;
+      background: oklch(var(--foreground) / 0.05);
+      box-shadow: inset 0 0 0 1px oklch(var(--foreground) / 0.06);
+      overflow: hidden;
+      position: relative;
+      transition: box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+    .g4-card:hover .g4-pic,
+    .g4-rank-item:hover .g4-pic {
+      transform: translateY(-3px);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 12px 28px -4px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-meta {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 0 2px;
+      min-height: 22px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(4px);
+      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+      pointer-events: none;
+    }
+
+    .g4-card:hover .card-meta,
+    .g4-rank-item:hover .card-meta {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .card-meta-left {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      min-width: 0;
+    }
+    .card-meta-avatar {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      flex-shrink: 0;
+      object-fit: contain;
+      background: #18181b;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: block;
+    }
+    .card-meta-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: #fafafa;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .price-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2.5px 7.5px;
+      border-radius: 5px;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1.25;
+      flex-shrink: 0;
+      border: none;
+      box-shadow: none;
+    }
+    .price-badge.free {
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+    }
+    .price-badge.semi-free {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+    }
+    .price-badge.paid {
+      background: rgba(192, 132, 252, 0.15);
+      color: #c084fc;
+    }
+
+    .top-today-wrapper {
+      position: relative;
+      width: 100%;
+      -webkit-mask-image: linear-gradient(
+        to right,
+        #000 0%,
+        #000 calc(100% - 180px),
+        rgba(0, 0, 0, 0.8) calc(100% - 120px),
+        rgba(0, 0, 0, 0.4) calc(100% - 70px),
+        rgba(0, 0, 0, 0.08) calc(100% - 30px),
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to right,
+        #000 0%,
+        #000 calc(100% - 180px),
+        rgba(0, 0, 0, 0.8) calc(100% - 120px),
+        rgba(0, 0, 0, 0.4) calc(100% - 70px),
+        rgba(0, 0, 0, 0.08) calc(100% - 30px),
+        transparent 100%
+      );
+    }
+    .top-today-wrapper.is-middle {
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.08) 25px,
+        rgba(0, 0, 0, 0.5) 55px,
+        #000 80px,
+        #000 calc(100% - 180px),
+        rgba(0, 0, 0, 0.8) calc(100% - 120px),
+        rgba(0, 0, 0, 0.4) calc(100% - 70px),
+        rgba(0, 0, 0, 0.08) calc(100% - 30px),
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.08) 25px,
+        rgba(0, 0, 0, 0.5) 55px,
+        #000 80px,
+        #000 calc(100% - 180px),
+        rgba(0, 0, 0, 0.8) calc(100% - 120px),
+        rgba(0, 0, 0, 0.4) calc(100% - 70px),
+        rgba(0, 0, 0, 0.08) calc(100% - 30px),
+        transparent 100%
+      );
+    }
+    .top-today-wrapper.is-end {
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.08) 25px,
+        rgba(0, 0, 0, 0.5) 55px,
+        #000 80px,
+        #000 100%
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.08) 25px,
+        rgba(0, 0, 0, 0.5) 55px,
+        #000 80px,
+        #000 100%
+      );
+    }
+    .top-today-scroll {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      cursor: grab;
+      user-select: none;
+      overscroll-behavior-y: auto !important;
+      touch-action: pan-y pan-x !important;
+    }
+    .top-today-scroll:active {
+      cursor: grabbing;
+    }
+    .top-today-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .top-today-scroll .g4-rank-item {
+      flex: 0 0 calc(21.2% - 12px);
+      min-width: 230px;
+      scroll-snap-align: start;
+    }
+
+    .card-preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+    .g4-card:hover .card-preview-img,
+    .g4-rank-item:hover .card-preview-img {
+      transform: scale(1.04);
+    }
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+/* Override native scroll behavior so Lenis handles it exclusively. */
+html {
+  scroll-behavior: auto !important;
+  scroll-padding-top: 80px;
+}
+body {
+  overflow-x: hidden;
+}
+
+.hero-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem 4rem;
+  background: transparent;
+  box-sizing: border-box;
+  z-index: 50;
+}
+
+.nav-pill-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.15rem;
+  padding: 0.35rem 0.5rem 0.35rem 1rem;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  flex-shrink: 0;
+  transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+html[data-theme="dark"] .nav-pill-bar,
+:root:not([data-theme="light"]) .nav-pill-bar {
+  background: rgba(15, 15, 16, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 20px 48px -12px rgba(0, 0, 0, 0.75) !important;
+}
+
+html[data-theme="dark"] .nav-pill-bar:hover,
+:root:not([data-theme="light"]) .nav-pill-bar:hover {
+  background: rgba(26, 26, 28, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.14),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 24px 56px -12px rgba(0, 0, 0, 0.85) !important;
+}
+
+[data-theme="light"] .nav-pill-bar {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(28px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(160%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.5),
+    0 12px 32px -4px rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme="light"] .nav-pill-bar:hover {
+  border-color: rgba(0, 0, 0, 0.16) !important;
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.7),
+    0 16px 36px -4px rgba(15, 23, 42, 0.12) !important;
+}
+
+.nav-brand-text {
+  font-family: 'Plus Jakarta Sans', var(--font-sans) !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  transition: color 0.35s ease;
+}
+[data-theme="light"] .nav-brand-text {
+  color: #0f172a;
+}
+
+.nav-center-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.hero-nav-link {
+  font-family: 'Plus Jakarta Sans', var(--font-sans) !important;
+  font-size: 0.825rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.75) !important;
+  text-decoration: none;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  transition: color 0.25s ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.nav-link-ui { min-width: 82px; }
+.nav-link-bg { min-width: 96px; }
+.nav-link-design { min-width: 72px; }
+
+.hero-nav-link:hover {
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .hero-nav-link {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .hero-nav-link:hover {
+  color: #0f172a !important;
+}
+
+.nav-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.2rem 0.35rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.25s ease !important;
+}
+
+.nav-theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="light"] .nav-theme-toggle {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .nav-theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+.theme-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.45);
+  transition: all 0.25s ease;
+}
+
+.theme-toggle-icon.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .theme-toggle-icon {
+  color: #94a3b8 !important;
+}
+
+[data-theme="light"] .theme-toggle-icon.active {
+  color: #d97706 !important;
+  background: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .nav-theme-toggle .sun-icon {
+  color: #d97706 !important;
+  background: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .nav-theme-toggle .moon-icon {
+  color: #94a3b8 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.hero-section {
+  border-bottom-left-radius: 40px !important;
+  border-bottom-right-radius: 40px !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  transform: translateZ(0);
+}
+.hero-section::before,
+.hero-section::after {
+  border-bottom-left-radius: 40px !important;
+  border-bottom-right-radius: 40px !important;
+}
+
+[data-theme="light"] {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --muted-foreground: #64748b;
+  --border: #e2e8f0;
+}
+
+[data-theme="light"] body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .content-body {
+  background-color: #f8fafc !important;
+}
+
+[data-theme="light"] .rail-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .rail-link {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .rail-link:hover {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .scroll-arrow-btn {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme="light"] .scroll-arrow-btn:hover {
+  background: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.2) !important;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12) !important;
+}
+
+[data-theme="light"] .top-today-wrapper,
+[data-theme="light"] .top-today-wrapper.is-middle,
+[data-theme="light"] .top-today-wrapper.is-end {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+[data-theme="light"] .top-today-wrapper::before,
+[data-theme="light"] .top-today-wrapper::after {
+  display: none !important;
+}
+
+[data-theme="light"] .top-today-scroll {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+[data-theme="light"] .g4-rank {
+  color: rgba(15, 23, 42, 0.28) !important;
+  transition: color 0.25s ease;
+}
+[data-theme="light"] .g4-rank-item:hover .g4-rank {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .g4-pic {
+  background: rgba(15, 23, 42, 0.03);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.08);
+  transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+}
+[data-theme="light"] .g4-card:hover .g4-pic,
+[data-theme="light"] .g4-rank-item:hover .g4-pic {
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.12), 0 12px 28px -4px rgba(15, 23, 42, 0.1);
+}
+
+[data-theme="light"] .card-meta-avatar {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.1);
+}
+[data-theme="light"] .card-meta-title {
+  color: #0f172a;
+}
+
+[data-theme="light"] .price-badge.free {
+  background: rgba(22, 163, 74, 0.1);
+  color: #15803d;
+}
+[data-theme="light"] .price-badge.semi-free {
+  background: rgba(14, 116, 144, 0.1);
+  color: #0e7490;
+}
+[data-theme="light"] .price-badge.paid {
+  background: rgba(147, 51, 234, 0.1);
+  color: #7c3aed;
+}
+
+[data-theme="light"] .reveal-section {
+  background-color: #f8fafc !important;
+}
+[data-theme="light"] .reveal-text {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] footer {
+  border-top-color: rgba(15, 23, 42, 0.08) !important;
+  color: #64748b !important;
+}
+[data-theme="light"] footer span {
+  color: #0f172a !important;
+}
+[data-theme="light"] footer a {
+  color: #64748b !important;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Keep the astronaut in frame. */
+  .hero-section::before,
+  .hero-section::after {
+    background-position: 78% center !important;
+  }
+
+  .hero-navbar {
+    padding: 1.25rem 2rem !important;
+  }
+
+  .hero-inner {
+    padding: 0 2rem !important;
+  }
+
+  .hero-main-title {
+    font-size: clamp(2.5rem, 5vw, 3.25rem) !important;
+  }
+
+  /* Drop the edge fade where cards are swipeable. */
+  .top-today-wrapper,
+  .top-today-wrapper.is-middle,
+  .top-today-wrapper.is-end {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  .content-body {
+    padding: 36px 2rem 60px 2rem !important;
+    gap: 60px !important;
+  }
+
+  .rail-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 16px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .rail-title {
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .rail-link {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
+  .rail-row {
+    display: flex !important;
+    gap: 20px !important;
+    align-items: flex-start !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    overscroll-behavior-y: auto !important;
+    touch-action: pan-y pan-x !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    margin: 0 -2rem !important;
+    padding: 0 2rem 14px 2rem !important;
+    width: auto !important;
+    /* Match snap points to the row inset so cards are not flush with the edge. */
+    scroll-padding: 0 2rem !important;
+  }
+
+  .rail-row::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .rail-row .g4-card {
+    flex: 0 0 calc(85% - 10px) !important;
+    min-width: 340px !important;
+    max-width: 680px !important;
+    scroll-snap-align: start !important;
+    width: auto !important;
+  }
+
+  .top-today-scroll {
+    gap: 20px !important;
+  }
+
+  .top-today-scroll .g4-rank-item {
+    flex: 0 0 calc(85% - 10px) !important;
+    min-width: 340px !important;
+    max-width: 680px !important;
+  }
+
+  /* Touch devices have no hover, so keep metadata visible. */
+  .card-meta {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+
+  .reveal-section {
+    height: auto !important;
+    min-height: 70vh !important;
+    padding: 4rem 2rem !important;
+  }
+
+  .reveal-text {
+    font-size: clamp(2.25rem, 5vw, 3.25rem) !important;
+  }
+
+  .content-body {
+    padding: 36px 2rem 60px 2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  .hero-navbar {
+    padding: 0.85rem 1.25rem !important;
+    gap: 0.5rem !important;
+    justify-content: space-between !important;
+  }
+
+  .nav-pill-bar {
+    gap: 0.5rem !important;
+    padding: 0.35rem 0.5rem 0.35rem 0.75rem !important;
+  }
+
+  .nav-center-menu,
+  .nav-pill-divider {
+    display: none !important;
+  }
+
+  .nav-right-actions,
+  .nav-right-controls {
+    gap: 0.5rem !important;
+  }
+
+  .nav-btn-github span {
+    display: none !important;
+  }
+
+  .nav-btn-github {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .nav-btn-started {
+    height: 32px !important;
+    min-height: 32px !important;
+    padding: 0 0.85rem !important;
+    font-size: 0.75rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  html[data-theme="dark"] .nav-pill-bar,
+  :root:not([data-theme="light"]) .nav-pill-bar {
+    background: rgba(15, 15, 16, 0.75) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* Use svh so mobile browser chrome does not shift the hero. */
+  .hero-section {
+    min-height: calc(100vh + 44px) !important;
+    min-height: calc(100svh + 44px) !important;
+    height: calc(100vh + 44px) !important;
+    height: calc(100svh + 44px) !important;
+    border-bottom-left-radius: 40px !important;
+    border-bottom-right-radius: 40px !important;
+    overflow: hidden !important;
+    isolation: isolate;
+    transform: translateZ(0);
+    box-sizing: border-box !important;
+    padding: 5.5rem 0 2rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .hero-section::before,
+  .hero-section::after {
+    border-bottom-left-radius: 40px !important;
+    border-bottom-right-radius: 40px !important;
+    background-position: 89% center !important;
+    background-size: cover !important;
+  }
+
+  .hero-inner {
+    padding: 0 1.25rem !important;
+  }
+
+  .hero-left-column {
+    padding-top: 1rem !important;
+  }
+
+  .hero-main-title {
+    font-size: clamp(2rem, 7.5vw, 2.5rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .hero-vertical-gap {
+    height: 1.25rem !important;
+  }
+
+  .hero-subtext {
+    font-size: 0.825rem !important;
+    max-width: 320px !important;
+    line-height: 1.5 !important;
+  }
+
+  .hero-glass-btn {
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  .hero-antislop-link {
+    min-height: 32px !important;
+    height: 32px !important;
+    padding: 0 0.85rem !important;
+    font-size: 0.725rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+  }
+
+  html[data-theme="dark"] .hero-antislop-link,
+  :root:not([data-theme="light"]) .hero-antislop-link {
+    background: rgba(12, 12, 14, 0.88) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7) !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+  }
+
+  [data-theme="light"] .hero-antislop-link {
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(0, 0, 0, 0.14) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    color: #09090b !important;
+  }
+
+  .reveal-section {
+    min-height: 60vh !important;
+    height: auto !important;
+    padding: 3rem 1.25rem !important;
+  }
+
+  .reveal-text {
+    font-size: clamp(1.75rem, 6vw, 2.25rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .content-body {
+    padding: 24px 1.25rem 60px 1.25rem !important;
+    gap: 56px !important;
+  }
+
+  .rail-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    padding: 0 4px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .rail-title {
+    font-size: clamp(1rem, 4.2vw, 1.25rem) !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    min-width: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .rail-link {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .top-today-wrapper,
+  .top-today-wrapper.is-middle,
+  .top-today-wrapper.is-end {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    margin: 0 -1.25rem !important;
+    padding: 0 !important;
+    width: auto !important;
+    overflow: visible !important;
+  }
+
+  .top-today-scroll {
+    gap: 16px !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    padding: 0 1.25rem 14px 1.25rem !important;
+    scroll-padding: 0 1.25rem !important;
+  }
+
+  .top-today-scroll .g4-rank-item {
+    flex: 0 0 calc(86% - 8px) !important;
+    min-width: 270px !important;
+    max-width: none !important;
+    scroll-snap-align: start !important;
+  }
+
+  .rail-row {
+    display: flex !important;
+    gap: 16px !important;
+    align-items: flex-start !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    overscroll-behavior-y: auto !important;
+    touch-action: pan-y pan-x !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    margin: 0 -1.25rem !important;
+    padding: 0 1.25rem 14px 1.25rem !important;
+    width: auto !important;
+    /* Match snap points to the row inset so cards are not flush with the edge. */
+    scroll-padding: 0 1.25rem !important;
+  }
+
+  .rail-row::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .rail-row .g4-card {
+    flex: 0 0 calc(86% - 8px) !important;
+    min-width: 270px !important;
+    max-width: none !important;
+    scroll-snap-align: start !important;
+    width: auto !important;
+  }
+
+  .card-meta {
+    margin-top: 10px !important;
+    padding: 0 4px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    overflow: hidden !important;
+  }
+
+  .card-meta-left {
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .card-meta-title {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  footer {
+    padding: 32px 1.25rem 60px 1.25rem !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-main-title {
+    font-size: 2rem !important;
+  }
+
+  .hero-glass-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .rail-header {
+    gap: 6px !important;
+  }
+
+  .rail-title {
+    font-size: 1.05rem !important;
+  }
+
+  .rail-link {
+    font-size: 0.75rem !important;
+  }
+
+  .top-today-scroll {
+    gap: 14px !important;
+  }
+
+  .top-today-scroll .g4-rank-item {
+    flex: 0 0 calc(88% - 6px) !important;
+    min-width: 240px !important;
+    max-width: none !important;
+  }
+
+  .rail-row {
+    gap: 14px !important;
+  }
+
+  .rail-row .g4-card {
+    flex: 0 0 calc(88% - 6px) !important;
+    min-width: 240px !important;
+    max-width: none !important;
+  }
+
+  .g4-rank {
+    font-size: 64px !important;
+  }
+}
+
+  .site-footer {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 40px 32px 60px 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: #71717a;
+    font-size: 13px;
+  }
+  .footer-desktop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 16px;
+  }
+  .footer-mobile {
+    display: none;
+  }
+  .site-footer-brand {
+    font-size: 13px;
+    color: #71717a;
+  }
+  .site-footer-title {
+    color: #fafafa;
+    font-weight: 600;
+  }
+  .site-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .site-footer-link {
+    color: #a1a1aa;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .site-footer-link:hover {
+    color: #ffffff;
+  }
+
+  [data-theme="light"] .site-footer {
+    border-top-color: rgba(0, 0, 0, 0.08);
+    color: #71717a;
+  }
+  [data-theme="light"] .site-footer-title {
+    color: #09090b;
+  }
+  [data-theme="light"] .site-footer-link {
+    color: #52525b;
+  }
+  [data-theme="light"] .site-footer-link:hover {
+    color: #09090b;
+  }
+
+  @media (max-width: 768px) {
+    .site-footer {
+      padding: 36px 1.25rem 48px 1.25rem !important;
+    }
+    .footer-desktop {
+      display: none !important;
+    }
+    .footer-mobile {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      gap: 14px !important;
+      width: 100% !important;
+    }
+    .f-mob-brand {
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      color: #fafafa !important;
+      letter-spacing: -0.01em !important;
+    }
+    .f-mob-tagline {
+      font-size: 12px !important;
+      color: #a1a1aa !important;
+      line-height: 1.5 !important;
+      max-width: 290px !important;
+    }
+    .f-mob-links {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 14px !important;
+      padding-top: 4px !important;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08) !important;
+      width: 100% !important;
+      max-width: 340px !important;
+      font-size: 12px !important;
+    }
+    .f-mob-sep {
+      color: rgba(255, 255, 255, 0.15) !important;
+      font-size: 11px !important;
+    }
+    .f-mob-link {
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      color: #a1a1aa !important;
+      text-decoration: none !important;
+      transition: color 0.2s ease !important;
+    }
+    .f-mob-link:hover {
+      color: #ffffff !important;
+    }
+    .f-mob-copy {
+      font-size: 11px !important;
+      color: #71717a !important;
+      opacity: 0.7 !important;
+    }
+
+    [data-theme="light"] .f-mob-brand {
+      color: #09090b !important;
+    }
+    [data-theme="light"] .f-mob-tagline {
+      color: #71717a !important;
+    }
+    [data-theme="light"] .f-mob-links {
+      border-top-color: rgba(0, 0, 0, 0.08) !important;
+    }
+    [data-theme="light"] .f-mob-sep {
+      color: rgba(0, 0, 0, 0.15) !important;
+    }
+    [data-theme="light"] .f-mob-link {
+      color: #52525b !important;
+    }
+    [data-theme="light"] .f-mob-link:hover {
+      color: #09090b !important;
+    }
+    [data-theme="light"] .f-mob-copy {
+      color: #a1a1aa !important;
+    }
+  }
+
+  /* Mobile GPUs blink a backdrop-filter layer whenever its backdrop animates. */
+  @media (max-width: 1024px) {
+    html[data-theme="dark"] .nav-pill-bar,
+    html[data-theme="light"] .nav-pill-bar,
+    :root:not([data-theme="light"]) .nav-pill-bar {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      transition: none !important;
+    }
+
+    html[data-theme="dark"] .nav-pill-bar,
+    :root:not([data-theme="light"]) .nav-pill-bar {
+      background: #111113 !important;
+    }
+
+    [data-theme="light"] .nav-pill-bar,
+    [data-theme="light"] .nav-pill-bar:hover {
+      background: #ffffff !important;
+    }
+
+    html[data-theme="dark"] .nav-pill-bar:hover,
+    :root:not([data-theme="light"]) .nav-pill-bar:hover {
+      background: #1a1a1c !important;
+    }
+
+    .hero-antislop-link,
+    .nav-pill-bar .theme-toggle-icon,
+    .nav-pill-bar .nav-brand-text {
+      transition: none !important;
+    }
+
+    html[data-theme="dark"] .hero-antislop-link,
+    :root:not([data-theme="light"]) .hero-antislop-link {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      background: #0c0c0e !important;
+    }
+
+    [data-theme="light"] .hero-antislop-link {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      background: #ffffff !important;
+    }
+  }
+
+  </style>
+  <noscript>
+    <style>[data-reveal-02] { visibility: visible; }</style>
+  </noscript>
+</head>
+<body>
+
+  <header class="hero-navbar">
+    <div class="nav-pill-bar">
+      <div class="nav-brand-wrap">
+        <a href="./" class="nav-brand-link" aria-label="Style UI">
+          <img decoding="async" src="assets/images/logo.png" alt="Style UI Logo" class="nav-brand-logo">
+          <span class="nav-brand-text">Style UI</span>
+        </a>
+      </div>
+
+      <div class="nav-pill-divider" aria-hidden="true"></div>
+
+      <nav class="nav-center-menu" aria-label="Main Navigation">
+        <a href="ui-components" class="hero-nav-link nav-link-ui">UI Libraries</a>
+        <a href="background-generator" class="hero-nav-link nav-link-bg">Backgrounds</a>
+        <a href="design-md" class="hero-nav-link nav-link-design">Design.md</a>
+      </nav>
+
+      <button class="nav-theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-toggle-icon sun-icon" title="Light mode">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </span>
+        <span class="theme-toggle-icon moon-icon active" title="Dark mode">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </span>
+      </button>
+    </div>
+
+    <div class="nav-right-actions nav-right-controls">
+      <a href="https://github.com/miqdadbadjuber/style-ui" target="_blank" rel="noopener noreferrer" class="nav-btn-github" aria-label="GitHub repository">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+        <span>GitHub</span>
+      </a>
+
+      <a href="https://github.com/miqdadbadjuber/style-ui/issues/new?template=submit-tool.yml" target="_blank" rel="noopener noreferrer" class="nav-btn-started">
+        <span>Submit</span>
+      </a>
+    </div>
+  </header>
+
+  <section class="hero-section" id="hero">
+    <div class="hero-inner">
+      <div class="hero-left-column">
+        <h1 class="hero-main-title">
+          AI will never understand<br>
+          your taste.<br>
+          Find yours here.
+        </h1>
+
+        <div class="hero-cta-wrapper">
+          <a href="#catalog" class="hero-glass-btn">
+            <span>Explore Directory</span>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <div class="hero-vertical-gap"></div>
+
+        <p class="hero-subtext">
+          Curated UI libraries, background generators, and motion tools for modern developers.
+        </p>
+
+        <a href="https://antislop.ai.id" target="_blank" rel="noopener noreferrer" class="hero-antislop-link" aria-label="Learn about Antislop design system">
+          <span class="antislop-text">Want to build without AI slop? Use <strong>Antislop</strong></span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="antislop-arrow" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal-section" id="philosophy">
+    <p class="reveal-text" data-reveal-02="chars" data-scroll="scrub">
+      AI can write code,<br>but it doesn't have taste.
+    </p>
+  </section>
+
+  <main class="content-body" id="catalog">
+
+      <section>
+        <div class="rail-header">
+          <h2 class="rail-title">Top today</h2>
+        </div>
+
+        <div class="top-today-wrapper">
+          <div class="top-today-scroll">
+            <div class="g4-rank-item">
+              <span class="g4-rank">1</span>
+              <a href="https://motion.dev" target="_blank" rel="noopener noreferrer" class="g4-card">
+                <div class="g4-pic">
+                  <img decoding="async" src="assets/previews/motion.webp" alt="Motion (Framer Motion) preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://motion.dev';">
+                </div>
+                <div class="card-meta">
+                  <div class="card-meta-left">
+                    <img decoding="async" src="assets/logos/motion.webp" alt="Motion (Framer Motion) logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=motion.dev&sz=128';">
+                    <span class="card-meta-title">Motion</span>
+                  </div>
+                  <span class="price-badge free">Free</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="g4-rank-item">
+              <span class="g4-rank">2</span>
+              <a href="https://uiverse.io/" target="_blank" rel="noopener noreferrer" class="g4-card">
+                <div class="g4-pic">
+                  <img decoding="async" src="assets/previews/uiverse.webp" alt="Uiverse preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://uiverse.io/';">
+                </div>
+                <div class="card-meta">
+                  <div class="card-meta-left">
+                    <img decoding="async" src="assets/logos/uiverse.webp" alt="Uiverse logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=uiverse.io&sz=128';">
+                    <span class="card-meta-title">Uiverse</span>
+                  </div>
+                  <span class="price-badge free">Free</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="g4-rank-item">
+              <span class="g4-rank">3</span>
+              <a href="https://feralui.dev/gradients" target="_blank" rel="noopener noreferrer" class="g4-card">
+                <div class="g4-pic">
+                  <img decoding="async" src="assets/previews/feralui-gradients.webp" alt="Feral UI Gradients preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://feralui.dev/gradients';">
+                </div>
+                <div class="card-meta">
+                  <div class="card-meta-left">
+                    <img decoding="async" src="assets/logos/feralui-gradients.webp" alt="Feral UI Gradients logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=feralui.dev&sz=128';">
+                    <span class="card-meta-title">Feral UI Gradients</span>
+                  </div>
+                  <span class="price-badge free">Free</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="g4-rank-item">
+              <span class="g4-rank">4</span>
+              <a href="https://21st.dev" target="_blank" rel="noopener noreferrer" class="g4-card">
+                <div class="g4-pic">
+                  <img decoding="async" src="assets/previews/21st.webp" alt="21st.dev preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://21st.dev';">
+                </div>
+                <div class="card-meta">
+                  <div class="card-meta-left">
+                    <img decoding="async" src="assets/logos/21st.webp" alt="21st.dev logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=21st.dev&sz=128';">
+                    <span class="card-meta-title">21st.dev</span>
+                  </div>
+                  <span class="price-badge semi-free">Semi-free</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="g4-rank-item">
+              <span class="g4-rank">5</span>
+              <a href="https://transitions.dev/" target="_blank" rel="noopener noreferrer" class="g4-card">
+                <div class="g4-pic">
+                  <img decoding="async" src="assets/previews/transitions.webp" alt="Transitions.dev preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://transitions.dev/';">
+                </div>
+                <div class="card-meta">
+                  <div class="card-meta-left">
+                    <img decoding="async" src="assets/logos/transitions.webp" alt="Transitions.dev logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=transitions.dev&sz=128';">
+                    <span class="card-meta-title">Transitions.dev</span>
+                  </div>
+                  <span class="price-badge free">Free</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="g4-rank-item">
+              <span class="g4-rank">6</span>
+              <a href="https://animata.design" target="_blank" rel="noopener noreferrer" class="g4-card">
+                <div class="g4-pic">
+                  <img decoding="async" src="assets/previews/animata.webp" alt="Animata preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://animata.design';">
+                </div>
+                <div class="card-meta">
+                  <div class="card-meta-left">
+                    <img decoding="async" src="assets/logos/animata.webp" alt="Animata logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=animata.design&sz=128';">
+                    <span class="card-meta-title">Animata</span>
+                  </div>
+                  <span class="price-badge free">Free</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="g4-rank-item">
+              <span class="g4-rank">7</span>
+              <a href="https://www.ui-layouts.com/" target="_blank" rel="noopener noreferrer" class="g4-card">
+                <div class="g4-pic">
+                  <img decoding="async" src="assets/previews/ui-layouts.webp" alt="UI Layouts preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://www.ui-layouts.com/';">
+                </div>
+                <div class="card-meta">
+                  <div class="card-meta-left">
+                    <img decoding="async" src="assets/logos/ui-layouts.webp" alt="UI Layouts logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=ui-layouts.com&sz=128';">
+                    <span class="card-meta-title">UI Layouts</span>
+                  </div>
+                  <span class="price-badge free">Free</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="g4-rank-item">
+              <span class="g4-rank">8</span>
+              <a href="https://player.style/" target="_blank" rel="noopener noreferrer" class="g4-card">
+                <div class="g4-pic">
+                  <img decoding="async" src="assets/previews/player.webp" alt="Player.style preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://player.style/';">
+                </div>
+                <div class="card-meta">
+                  <div class="card-meta-left">
+                    <img decoding="async" src="assets/logos/player.webp" alt="Player.style logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=player.style&sz=128';">
+                    <span class="card-meta-title">Player.style</span>
+                  </div>
+                  <span class="price-badge free">Free</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      </section>
+
+      <section class="catalog-section">
+        <div class="rail-header">
+          <h2 class="rail-title" id="ui-components">UI Components & Libraries</h2>
+          <a href="ui-components" class="rail-link">
+            <span>View all</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <div class="rail-row">
+          <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" class="g4-card">
+            <div class="g4-pic">
+              <img decoding="async" src="assets/previews/shadcn.webp" alt="shadcn/ui preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://ui.shadcn.com';">
+            </div>
+            <div class="card-meta">
+              <div class="card-meta-left">
+                <img decoding="async" src="assets/logos/shadcn.webp" alt="shadcn/ui logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=ui.shadcn.com&sz=128';">
+                <span class="card-meta-title">shadcn/ui</span>
+              </div>
+              <span class="price-badge free">Free</span>
+            </div>
+          </a>
+
+          <a href="https://ui.aceternity.com" target="_blank" rel="noopener noreferrer" class="g4-card">
+            <div class="g4-pic">
+              <img decoding="async" src="assets/previews/aceternity.webp" alt="Aceternity UI preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://ui.aceternity.com';">
+            </div>
+            <div class="card-meta">
+              <div class="card-meta-left">
+                <img decoding="async" src="assets/logos/aceternity.webp" alt="Aceternity UI logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=ui.aceternity.com&sz=128';">
+                <span class="card-meta-title">Aceternity UI</span>
+              </div>
+              <span class="price-badge free">Free</span>
+            </div>
+          </a>
+
+          <a href="https://motion-primitives.com/" target="_blank" rel="noopener noreferrer" class="g4-card">
+            <div class="g4-pic">
+              <img decoding="async" src="assets/previews/motion-primitives.webp" alt="Motion Primitives preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://motion-primitives.com/';">
+            </div>
+            <div class="card-meta">
+              <div class="card-meta-left">
+                <img decoding="async" src="assets/logos/motion-primitives.webp" alt="Motion Primitives logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=motion-primitives.com&sz=128';">
+                <span class="card-meta-title">Motion Primitives</span>
+              </div>
+              <span class="price-badge free">Free</span>
+            </div>
+          </a>
+
+          <a href="https://Reactbits.dev" target="_blank" rel="noopener noreferrer" class="g4-card">
+            <div class="g4-pic">
+              <img decoding="async" src="assets/previews/react-bits.webp" alt="React Bits preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://Reactbits.dev';">
+            </div>
+            <div class="card-meta">
+              <div class="card-meta-left">
+                <img decoding="async" src="assets/logos/react-bits.webp" alt="React Bits logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=reactbits.dev&sz=128';">
+                <span class="card-meta-title">React Bits</span>
+              </div>
+              <span class="price-badge free">Free</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="catalog-section">
+        <div class="rail-header">
+          <h2 class="rail-title" id="background-shaders">Background & Shader Generators</h2>
+          <a href="background-generator" class="rail-link">
+            <span>View all</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <div class="rail-row">
+          <a href="https://patterncraft.store/" target="_blank" rel="noopener noreferrer" class="g4-card">
+            <div class="g4-pic">
+              <img decoding="async" src="assets/previews/patterncraft.webp" alt="PatternCraft preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://patterncraft.store/';">
+            </div>
+            <div class="card-meta">
+              <div class="card-meta-left">
+                <img decoding="async" src="assets/logos/patterncraft.webp" alt="PatternCraft logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=patterncraft.store&sz=128';">
+                <span class="card-meta-title">PatternCraft</span>
+              </div>
+              <span class="price-badge free">Free</span>
+            </div>
+          </a>
+
+          <a href="https://backgrounds.supply" target="_blank" rel="noopener noreferrer" class="g4-card">
+            <div class="g4-pic">
+              <img decoding="async" src="assets/previews/backgrounds-supply.webp" alt="Backgrounds Supply preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://backgrounds.supply';">
+            </div>
+            <div class="card-meta">
+              <div class="card-meta-left">
+                <img decoding="async" src="assets/logos/backgrounds-supply.webp" alt="Backgrounds Supply logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=backgrounds.supply&sz=128';">
+                <span class="card-meta-title">Backgrounds Supply</span>
+              </div>
+              <span class="price-badge paid">Paid</span>
+            </div>
+          </a>
+
+          <a href="https://grainient.supply" target="_blank" rel="noopener noreferrer" class="g4-card">
+            <div class="g4-pic">
+              <img decoding="async" src="assets/previews/grainient-supply.webp" alt="Grainient Supply preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://grainient.supply';">
+            </div>
+            <div class="card-meta">
+              <div class="card-meta-left">
+                <img decoding="async" src="assets/logos/grainient-supply.webp" alt="Grainient Supply logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=grainient.supply&sz=128';">
+                <span class="card-meta-title">Grainient Supply</span>
+              </div>
+              <span class="price-badge free">Free</span>
+            </div>
+          </a>
+
+          <a href="https://neat.firecms.co/" target="_blank" rel="noopener noreferrer" class="g4-card">
+            <div class="g4-pic">
+              <img decoding="async" src="assets/previews/firecms-neat.webp" alt="FireCMS Neat preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://neat.firecms.co/';">
+            </div>
+            <div class="card-meta">
+              <div class="card-meta-left">
+                <img decoding="async" src="assets/logos/firecms-neat.webp" alt="FireCMS Neat logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=neat.firecms.co&sz=128';">
+                <span class="card-meta-title">FireCMS Neat</span>
+              </div>
+              <span class="price-badge free">Free</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="catalog-section">
+        <div class="rail-header">
+          <h2 class="rail-title" id="design-md">Design.md Generators</h2>
+          <a href="design-md" class="rail-link">
+            <span>View all</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <div class="rail-row">
+          <a href="https://www.context.dev/free-tools/design-md-generator" target="_blank" rel="noopener noreferrer" class="g4-card">
+            <div class="g4-pic">
+              <img decoding="async" src="assets/previews/design-md-generator-context.webp" alt="Design MD Generator (Context) preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://www.context.dev/free-tools/design-md-generator';">
+            </div>
+            <div class="card-meta">
+              <div class="card-meta-left">
+                <img decoding="async" src="assets/logos/design-md-generator-context.webp" alt="Design MD Generator (Context) logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=www.context.dev&sz=128';">
+                <span class="card-meta-title">Design MD Generator (Context)</span>
+              </div>
+              <span class="price-badge free">Free</span>
+            </div>
+          </a>
+
+          <a href="https://design.dev/ai/design-md-generator" target="_blank" rel="noopener noreferrer" class="g4-card">
+            <div class="g4-pic">
+              <img decoding="async" src="assets/previews/design-ai-generator.webp" alt="Design.dev AI Generator preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://design.dev/ai/design-md-generator';">
+            </div>
+            <div class="card-meta">
+              <div class="card-meta-left">
+                <img decoding="async" src="assets/logos/design-ai-generator.webp" alt="Design.dev AI Generator logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=design.dev&sz=128';">
+                <span class="card-meta-title">Design.dev AI Generator</span>
+              </div>
+              <span class="price-badge free">Free</span>
+            </div>
+          </a>
+
+          <a href="https://www.designmd.co/" target="_blank" rel="noopener noreferrer" class="g4-card">
+            <div class="g4-pic">
+              <img decoding="async" src="assets/previews/design-md.webp" alt="Design MD preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://www.designmd.co/';">
+            </div>
+            <div class="card-meta">
+              <div class="card-meta-left">
+                <img decoding="async" src="assets/logos/design-md.webp" alt="Design MD logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=www.designmd.co&sz=128';">
+                <span class="card-meta-title">Design MD</span>
+              </div>
+              <span class="price-badge free">Free</span>
+            </div>
+          </a>
+
+          <a href="https://vibeprompts.dev" target="_blank" rel="noopener noreferrer" class="g4-card">
+            <div class="g4-pic">
+              <img decoding="async" src="assets/previews/vibeprompts.webp" alt="Vibe Prompts preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://vibeprompts.dev';">
+            </div>
+            <div class="card-meta">
+              <div class="card-meta-left">
+                <img decoding="async" src="assets/logos/vibeprompts.webp" alt="Vibe Prompts logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=vibeprompts.dev&sz=128';">
+                <span class="card-meta-title">Vibe Prompts</span>
+              </div>
+              <span class="price-badge free">Free</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-desktop">
+      <div class="site-footer-brand">
+        <span class="site-footer-title">Style UI</span> - Curated directory for developers and UI designers.
+      </div>
+      <div class="site-footer-links">
+        <a href="https://github.com/miqdadbadjuber/style-ui/issues/new?template=submit-tool.yml" target="_blank" rel="noopener noreferrer" class="site-footer-link">Submit via GitHub Issue</a>
+        <a href="https://github.com/miqdadbadjuber/style-ui" target="_blank" rel="noopener noreferrer" class="site-footer-link">GitHub</a>
+      </div>
+    </div>
+
+    <div class="footer-mobile">
+      <div class="f-mob-brand">Style UI</div>
+      <p class="f-mob-tagline">
+        Curated directory of premier web development and UI tools for creators.
+      </p>
+      <div class="f-mob-links">
+        <a href="https://github.com/miqdadbadjuber/style-ui/issues/new?template=submit-tool.yml" target="_blank" rel="noopener noreferrer" class="f-mob-link">Submit Tool</a>
+        <span class="f-mob-sep">/</span>
+        <a href="https://github.com/miqdadbadjuber/style-ui" target="_blank" rel="noopener noreferrer" class="f-mob-link">GitHub</a>
+        <span class="f-mob-sep">/</span>
+        <a href="https://github.com/miqdadbadjuber/style-ui/blob/main/ROADMAP.md" target="_blank" rel="noopener noreferrer" class="f-mob-link">Roadmap</a>
+      </div>
+      <div class="f-mob-copy">
+        2026 Style UI. Open source project.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+  
+  <script>
+    (function () {
+      const revealElements = document.querySelectorAll("[data-reveal-02]");
+
+      if (!window.gsap || !window.SplitText || !window.ScrollTrigger || !window.Lenis) {
+        revealElements.forEach((el) => { el.style.visibility = "visible"; });
+        return;
+      }
+
+      gsap.registerPlugin(SplitText, ScrollTrigger);
+      ScrollTrigger.config({ ignoreMobileResize: true });
+
+    const lenis = new Lenis({
+      duration: 0.9,
+      easing: (t) => 1 - Math.pow(1 - t, 3),
+      smoothWheel: true,
+      wheelMultiplier: 0.95,
+      touchMultiplier: 1.0,
+    });
+    window.lenis = lenis;
+
+    lenis.on("scroll", ScrollTrigger.update);
+
+    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(500, 33);
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+        if (href && href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            if (typeof lenis !== "undefined" && lenis) {
+              lenis.scrollTo(target, {
+                offset: 0,
+                duration: 1.1,
+                easing: (t) => 1 - Math.pow(1 - t, 3),
+                force: true,
+              });
+            } else {
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }
+        }
+      });
+    });
+
+    function textReveal02(scope = document, delay = 0, { ignoreManual = false } = {}) {
+      const CONFIG = {
+        lines: { duration: 0.04, stagger: 0.03, ease: "power1.out" },
+        words: { duration: 0.04, stagger: 0.03, ease: "power1.out" },
+        chars: { duration: 0.04, stagger: 0.03, ease: "power1.out" },
+        scrollStart: "top 85%",
+        scrubStart: "top 85%",
+        scrubEnd: "center 55%",
+        once: false,
+        markers: false,
+      };
+
+      const allSplitEls = scope.querySelectorAll("[data-reveal-02]");
+      const autoEls = ignoreManual
+        ? [...allSplitEls]
+        : [...allSplitEls].filter((el) => !el.hasAttribute("data-manual"));
+
+      gsap.set(autoEls, { visibility: "visible" });
+
+      allSplitEls.forEach((el) => {
+        const splitType = el.getAttribute("data-reveal-02");
+        const c = CONFIG[splitType];
+        if (!c) return;
+
+        let type, linesClass, wordsClass, charsClass;
+        switch (splitType) {
+          case "lines":
+            type = "lines";
+            linesClass = "line";
+            break;
+          case "words":
+            type = "words, lines";
+            wordsClass = "word";
+            linesClass = "line";
+            break;
+          case "chars":
+            type = "chars, words, lines";
+            charsClass = "char";
+            wordsClass = "word";
+            linesClass = "line";
+            break;
+          default:
+            return;
+        }
+
+        if (!ignoreManual && el.hasAttribute("data-manual")) {
+          SplitText.create(el, {
+            type,
+            autoSplit: true,
+            ...(linesClass && { linesClass }),
+            ...(wordsClass && { wordsClass }),
+            ...(charsClass && { charsClass }),
+          });
+          return;
+        }
+
+        const scrollMode = el.getAttribute("data-scroll");
+        const useScroll = el.hasAttribute("data-scroll");
+        const useScrub = scrollMode === "scrub";
+
+        SplitText.create(el, {
+          type,
+          autoSplit: true,
+          ...(linesClass && { linesClass }),
+          ...(wordsClass && { wordsClass }),
+          ...(charsClass && { charsClass }),
+          onSplit(instance) {
+            const durationValue = parseFloat(el.dataset.duration);
+            const staggerValue = parseFloat(el.dataset.stagger);
+            const delayValue = parseFloat(el.dataset.delay);
+            const duration = Number.isNaN(durationValue) ? c.duration : durationValue;
+            const stagger = Number.isNaN(staggerValue) ? c.stagger : staggerValue;
+            const elDelay = Number.isNaN(delayValue) ? 0 : delayValue;
+            const ease = el.dataset.ease || c.ease;
+
+            const targets = instance[splitType];
+            const once = el.hasAttribute("data-once")
+              ? el.getAttribute("data-once") !== "false"
+              : CONFIG.once;
+
+            const tween = {
+              opacity: 0.1,
+              duration,
+              stagger,
+              delay: useScroll ? elDelay : elDelay + delay,
+              immediateRender: true,
+              ease,
+            };
+
+            if (useScrub) {
+              tween.scrollTrigger = {
+                trigger: el,
+                start: CONFIG.scrubStart,
+                end: CONFIG.scrubEnd,
+                scrub: 1,
+                markers: CONFIG.markers,
+                ...(once && { onLeave: (self) => { self.animation.progress(1); self.kill(false); } }),
+              };
+            } else if (useScroll) {
+              const start = scrollMode || CONFIG.scrollStart;
+              tween.scrollTrigger = {
+                trigger: el,
+                start: `clamp(${start})`,
+                markers: CONFIG.markers,
+                ...(once ? { once: true } : { toggleActions: "play none none reverse" }),
+              };
+            }
+
+            return gsap.from(targets, tween);
+          },
+        });
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const revealFallbackEls = document.querySelectorAll("[data-reveal-02]");
+      revealFallbackEls.forEach((el) => { el.style.visibility = "visible"; });
+
+      const runReveal = () => {
+        try {
+          textReveal02();
+        } catch (error) {
+          revealFallbackEls.forEach((el) => { el.style.visibility = "visible"; });
+        }
+      };
+
+      (document.fonts ? document.fonts.ready : Promise.resolve()).then(runReveal).catch(runReveal);
+    });
+    })();
+  </script>
+
+  <script>
+    const topScroll = document.querySelector('.top-today-scroll');
+    const topWrapper = document.querySelector('.top-today-wrapper');
+    if (topScroll && topWrapper) {
+      const updateMask = () => {
+        const sl = topScroll.scrollLeft;
+        const maxScroll = topScroll.scrollWidth - topScroll.clientWidth;
+        if (maxScroll <= 5) {
+          topWrapper.className = 'top-today-wrapper';
+          return;
+        }
+        if (sl <= 10) {
+          topWrapper.className = 'top-today-wrapper';
+        } else if (sl >= maxScroll - 10) {
+          topWrapper.className = 'top-today-wrapper is-end';
+        } else {
+          topWrapper.className = 'top-today-wrapper is-middle';
+        }
+      };
+
+      topScroll.addEventListener('scroll', updateMask, { passive: true });
+      updateMask();
+      window.addEventListener('resize', updateMask, { passive: true });
+
+      let isDown = false;
+      let startX, scrollLeft;
+      topScroll.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - topScroll.offsetLeft;
+        scrollLeft = topScroll.scrollLeft;
+      });
+      topScroll.addEventListener('mouseleave', () => isDown = false);
+      topScroll.addEventListener('mouseup', () => isDown = false);
+      topScroll.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - topScroll.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        topScroll.scrollLeft = scrollLeft - walk;
+      });
+    }
+  </script>
+</body>
+</html>

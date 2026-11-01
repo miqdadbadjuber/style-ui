@@ -1,0 +1,22 @@
+# Local backups and experiments
+archive/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+
+# Dependencies and build output. The site needs neither.
+node_modules/
+.vercel/
+
+# Python cache from the asset scripts
+__pycache__/
+*.pyc
+
+# Local environment files
+.env
+.env.*

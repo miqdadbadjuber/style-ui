@@ -1,0 +1,70 @@
+name: Submit a tool
+description: Suggest a tool for the directory.
+title: "[Tool] "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion. Search the directory first to avoid duplicates.
+  - type: input
+    id: name
+    attributes:
+      label: Tool name
+      placeholder: Aceternity UI
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Website URL
+      placeholder: https://example.com
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - UI components and libraries
+        - Background and shader generators
+        - Design.md generators
+    validations:
+      required: true
+  - type: dropdown
+    id: pricing
+    attributes:
+      label: Pricing
+      options:
+        - Free
+        - Semi-free
+        - Paid
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Short description
+      description: One or two sentences. Explain what the tool does.
+      placeholder: A component library for React with animated primitives.
+    validations:
+      required: true
+  - type: input
+    id: logo
+    attributes:
+      label: Logo URL
+      description: A square logo, at least 128 x 128 pixels.
+  - type: input
+    id: preview
+    attributes:
+      label: Preview image URL
+      description: A screenshot of the tool, at least 1200 pixels wide.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched the directory and this tool is not listed.
+          required: true
+        - label: I am the owner, or I have permission to submit this tool.
+          required: true

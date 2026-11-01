@@ -1,0 +1,440 @@
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Keep the astronaut in frame. */
+  .hero-section::before,
+  .hero-section::after {
+    background-position: 78% center !important;
+  }
+
+  .hero-navbar {
+    padding: 1.25rem 2rem !important;
+  }
+
+  .hero-inner {
+    padding: 0 2rem !important;
+  }
+
+  .hero-main-title {
+    font-size: clamp(2.5rem, 5vw, 3.25rem) !important;
+  }
+
+  /* Drop the edge fade where cards are swipeable. */
+  .top-today-wrapper,
+  .top-today-wrapper.is-middle,
+  .top-today-wrapper.is-end {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  .content-body {
+    padding: 36px 2rem 60px 2rem !important;
+    gap: 60px !important;
+  }
+
+  .rail-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 16px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .rail-title {
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .rail-link {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
+  .rail-row {
+    display: flex !important;
+    gap: 20px !important;
+    align-items: flex-start !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    overscroll-behavior-y: auto !important;
+    touch-action: pan-y pan-x !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    margin: 0 -2rem !important;
+    padding: 0 2rem 14px 2rem !important;
+    width: auto !important;
+    /* Match snap points to the row inset so cards are not flush with the edge. */
+    scroll-padding: 0 2rem !important;
+  }
+
+  .rail-row::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .rail-row .g4-card {
+    flex: 0 0 calc(85% - 10px) !important;
+    min-width: 340px !important;
+    max-width: 680px !important;
+    scroll-snap-align: start !important;
+    width: auto !important;
+  }
+
+  .top-today-scroll {
+    gap: 20px !important;
+  }
+
+  .top-today-scroll .g4-rank-item {
+    flex: 0 0 calc(85% - 10px) !important;
+    min-width: 340px !important;
+    max-width: 680px !important;
+  }
+
+  /* Touch devices have no hover, so keep metadata visible. */
+  .card-meta {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+
+  .reveal-section {
+    height: auto !important;
+    min-height: 70vh !important;
+    padding: 4rem 2rem !important;
+  }
+
+  .reveal-text {
+    font-size: clamp(2.25rem, 5vw, 3.25rem) !important;
+  }
+
+  .content-body {
+    padding: 36px 2rem 60px 2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  .hero-navbar {
+    padding: 0.85rem 1.25rem !important;
+    gap: 0.5rem !important;
+    justify-content: space-between !important;
+  }
+
+  .nav-pill-bar {
+    gap: 0.5rem !important;
+    padding: 0.35rem 0.5rem 0.35rem 0.75rem !important;
+  }
+
+  .nav-center-menu,
+  .nav-pill-divider {
+    display: none !important;
+  }
+
+  .nav-right-actions,
+  .nav-right-controls {
+    gap: 0.5rem !important;
+  }
+
+  .nav-btn-github span {
+    display: none !important;
+  }
+
+  .nav-btn-github {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .nav-btn-started {
+    height: 32px !important;
+    min-height: 32px !important;
+    padding: 0 0.85rem !important;
+    font-size: 0.75rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  html[data-theme="dark"] .nav-pill-bar,
+  :root:not([data-theme="light"]) .nav-pill-bar {
+    background: rgba(15, 15, 16, 0.75) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* Use svh so mobile browser chrome does not shift the hero. */
+  .hero-section {
+    min-height: calc(100vh + 44px) !important;
+    min-height: calc(100svh + 44px) !important;
+    height: calc(100vh + 44px) !important;
+    height: calc(100svh + 44px) !important;
+    border-bottom-left-radius: 40px !important;
+    border-bottom-right-radius: 40px !important;
+    overflow: hidden !important;
+    isolation: isolate;
+    transform: translateZ(0);
+    box-sizing: border-box !important;
+    padding: 5.5rem 0 2rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .hero-section::before,
+  .hero-section::after {
+    border-bottom-left-radius: 40px !important;
+    border-bottom-right-radius: 40px !important;
+    background-position: 89% center !important;
+    background-size: cover !important;
+  }
+
+  .hero-inner {
+    padding: 0 1.25rem !important;
+  }
+
+  .hero-left-column {
+    padding-top: 1rem !important;
+  }
+
+  .hero-main-title {
+    font-size: clamp(2rem, 7.5vw, 2.5rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .hero-vertical-gap {
+    height: 1.25rem !important;
+  }
+
+  .hero-subtext {
+    font-size: 0.825rem !important;
+    max-width: 320px !important;
+    line-height: 1.5 !important;
+  }
+
+  .hero-glass-btn {
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  .hero-antislop-link {
+    min-height: 32px !important;
+    height: 32px !important;
+    padding: 0 0.85rem !important;
+    font-size: 0.725rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+  }
+
+  html[data-theme="dark"] .hero-antislop-link,
+  :root:not([data-theme="light"]) .hero-antislop-link {
+    background: rgba(12, 12, 14, 0.88) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7) !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+  }
+
+  [data-theme="light"] .hero-antislop-link {
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(0, 0, 0, 0.14) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    color: #09090b !important;
+  }
+
+  .reveal-section {
+    min-height: 60vh !important;
+    height: auto !important;
+    padding: 3rem 1.25rem !important;
+  }
+
+  .reveal-text {
+    font-size: clamp(1.75rem, 6vw, 2.25rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .content-body {
+    padding: 24px 1.25rem 60px 1.25rem !important;
+    gap: 56px !important;
+  }
+
+  .rail-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    padding: 0 4px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .rail-title {
+    font-size: clamp(1rem, 4.2vw, 1.25rem) !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    min-width: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .rail-link {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .top-today-wrapper,
+  .top-today-wrapper.is-middle,
+  .top-today-wrapper.is-end {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    margin: 0 -1.25rem !important;
+    padding: 0 !important;
+    width: auto !important;
+    overflow: visible !important;
+  }
+
+  .top-today-scroll {
+    gap: 16px !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    padding: 0 1.25rem 14px 1.25rem !important;
+    scroll-padding: 0 1.25rem !important;
+  }
+
+  .top-today-scroll .g4-rank-item {
+    flex: 0 0 calc(86% - 8px) !important;
+    min-width: 270px !important;
+    max-width: none !important;
+    scroll-snap-align: start !important;
+  }
+
+  .rail-row {
+    display: flex !important;
+    gap: 16px !important;
+    align-items: flex-start !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    overscroll-behavior-y: auto !important;
+    touch-action: pan-y pan-x !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    margin: 0 -1.25rem !important;
+    padding: 0 1.25rem 14px 1.25rem !important;
+    width: auto !important;
+    /* Match snap points to the row inset so cards are not flush with the edge. */
+    scroll-padding: 0 1.25rem !important;
+  }
+
+  .rail-row::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .rail-row .g4-card {
+    flex: 0 0 calc(86% - 8px) !important;
+    min-width: 270px !important;
+    max-width: none !important;
+    scroll-snap-align: start !important;
+    width: auto !important;
+  }
+
+  .card-meta {
+    margin-top: 10px !important;
+    padding: 0 4px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    overflow: hidden !important;
+  }
+
+  .card-meta-left {
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .card-meta-title {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  footer {
+    padding: 32px 1.25rem 60px 1.25rem !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-main-title {
+    font-size: 2rem !important;
+  }
+
+  .hero-glass-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .rail-header {
+    gap: 6px !important;
+  }
+
+  .rail-title {
+    font-size: 1.05rem !important;
+  }
+
+  .rail-link {
+    font-size: 0.75rem !important;
+  }
+
+  .top-today-scroll {
+    gap: 14px !important;
+  }
+
+  .top-today-scroll .g4-rank-item {
+    flex: 0 0 calc(88% - 6px) !important;
+    min-width: 240px !important;
+    max-width: none !important;
+  }
+
+  .rail-row {
+    gap: 14px !important;
+  }
+
+  .rail-row .g4-card {
+    flex: 0 0 calc(88% - 6px) !important;
+    min-width: 240px !important;
+    max-width: none !important;
+  }
+
+  .g4-rank {
+    font-size: 64px !important;
+  }
+}

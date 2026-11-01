@@ -1,0 +1,6 @@
+# Build and maintenance tooling. The site is plain static files.
+scripts/
+.github/
+
+# Agent and editor instructions.
+AGENTS.md

@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;450;500;550;600;700;800&family=Nunito:wght@800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    try {
+      const isMobileOrTablet = window.innerWidth <= 1024;
+      const deviceKey = isMobileOrTablet ? 'style_ui_theme_mobile' : 'style_ui_theme_desktop';
+      const savedTheme = localStorage.getItem(deviceKey);
+      const theme = savedTheme || (isMobileOrTablet ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (e) {}
+  </script>
+  <title>UI Components & Libraries - Style UI</title>
+  <meta name="description" content="Browse 47 UI component libraries and design systems for React, Tailwind, and vanilla projects. Compare pricing and previews in one place.">
+  <meta name="author" content="Miqdad Badjuber">
+  <link rel="canonical" href="https://style.ai.id/ui-components">
+  <meta name="theme-color" content="#f8fafc">
+
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Style UI">
+  <meta property="og:title" content="UI Components & Libraries - Style UI">
+  <meta property="og:description" content="Browse 47 UI component libraries and design systems for React, Tailwind, and vanilla projects. Compare pricing and previews in one place.">
+  <meta property="og:url" content="https://style.ai.id/ui-components">
+  <meta property="og:image" content="https://style.ai.id/assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Style UI homepage in light mode with the headline AI will never understand your taste. Find yours here.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UI Components & Libraries - Style UI">
+  <meta name="twitter:description" content="Browse 47 UI component libraries and design systems for React, Tailwind, and vanilla projects. Compare pricing and previews in one place.">
+  <meta name="twitter:image" content="https://style.ai.id/assets/images/og-image.jpg">
+  <meta name="twitter:image:alt" content="Style UI homepage in light mode with the headline AI will never understand your taste. Find yours here.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "UI Components & Libraries",
+    "url": "https://style.ai.id/ui-components",
+    "description": "Browse 47 UI component libraries and design systems for React, Tailwind, and vanilla projects.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Style UI",
+      "url": "https://style.ai.id/"
+    },
+    "inLanguage": "en"
+  }
+  </script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a, button, [role="button"], [role="tab"], input {
+      -webkit-tap-highlight-color: transparent !important;
+    }
+
+    :focus:not(:focus-visible) {
+      outline: none !important;
+    }
+
+    :root {
+      --background: oklch(0.115 0.002 286); /* #0e0e11 */
+      --foreground: oklch(0.975 0.002 286); /* #fafafa */
+      --muted-foreground: oklch(0.65 0.004 286); /* #8e8e99 */
+      --card-bg: oklch(0.975 0.002 286 / 0.05);
+      --card-border: oklch(0.975 0.002 286 / 0.06);
+      --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-title: "Nunito", var(--font-sans);
+
+      --tabs-dur: 250ms;
+      --tabs-ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --tabs-text-muted: rgba(193, 193, 193, 0.68);
+      --tabs-text-active: #ffffff;
+      --tabs-bar-bg: rgba(255, 255, 255, 0.04);
+      --tabs-pill-bg: rgba(255, 255, 255, 0.11);
+    }
+
+    html, body {
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+
+    html, body {
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+    ::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    .subpage-container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 36px 32px 90px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .subpage-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted-foreground);
+      text-decoration: none;
+      transition: all 0.15s ease;
+      width: fit-content;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+    .subpage-back-btn svg {
+      transition: transform 0.15s ease;
+    }
+    .subpage-back-btn:hover {
+      color: #ffffff;
+    }
+    [data-theme="light"] .subpage-back-btn:hover {
+      color: #0f172a;
+    }
+    .subpage-back-btn:hover svg {
+      transform: translateX(-3px);
+    }
+
+    .category-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .category-title {
+      font-family: var(--font-title);
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--foreground);
+    }
+    .category-desc {
+      font-size: 14.5px;
+      color: var(--muted-foreground);
+      max-width: 580px;
+      line-height: 1.55;
+      text-wrap: balance;
+      text-wrap: pretty;
+    }
+
+    .subpage-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .t-tabs {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      padding: 2.5px;
+      border-radius: 999px;
+      background: var(--tabs-bar-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .t-tab {
+      position: relative;
+      appearance: none;
+      border: 0;
+      background: transparent;
+      height: 25px;
+      padding: 0 11px;
+      color: var(--tabs-text-muted);
+      cursor: pointer !important;
+      pointer-events: auto !important;
+      border-radius: 999px;
+      z-index: 1;
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      font-weight: 550;
+      letter-spacing: -0.01em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      line-height: 1;
+      transition: color var(--tabs-dur) var(--tabs-ease);
+      user-select: none;
+    }
+    .t-tab:not([aria-selected="true"]):hover,
+    .t-tab[aria-selected="true"] {
+      color: var(--tabs-text-active);
+    }
+    .t-tabs-pill {
+      position: absolute;
+      top: 2.5px;
+      left: 0;
+      height: 25px;
+      width: 0;
+      background: var(--tabs-pill-bg);
+      border-radius: 999px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      transform: translateX(0);
+      transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1),
+                  width 250ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+      will-change: transform, width;
+      z-index: 0;
+      pointer-events: none !important;
+    }
+
+    .tab-badge {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 550;
+      font-variant-numeric: tabular-nums;
+      padding: 0 5px;
+      height: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.025);
+      color: rgba(255, 255, 255, 0.32);
+      transition: all var(--tabs-dur) var(--tabs-ease);
+    }
+    .t-tab[aria-selected="true"] .tab-badge {
+      background: rgba(255, 255, 255, 0.065);
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .search-box-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: 28px;
+      padding: 0 11px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 7px;
+      color: var(--muted-foreground);
+      width: 210px;
+      transition: all 0.15s ease;
+    }
+    .search-box-wrap:focus-within {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #fafafa;
+    }
+    .search-input {
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 11.5px;
+      color: #fafafa;
+      width: 100%;
+    }
+    .search-input::placeholder {
+      color: #71717a;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      row-gap: 32px;
+      column-gap: 20px;
+    }
+
+    @media (max-width: 1024px) {
+      .card-meta {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        pointer-events: auto !important;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        row-gap: 24px !important;
+        column-gap: 16px !important;
+      }
+      .subpage-container {
+        padding: 28px 24px 60px 24px !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .subpage-container {
+        padding: 20px 16px 60px 16px !important;
+      }
+      .subpage-top-bar {
+        margin-bottom: 12px !important;
+      }
+      .subpage-back-btn {
+        min-height: 44px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        font-size: 13px !important;
+        gap: 6px !important;
+      }
+      .subpage-theme-toggle {
+        min-height: 32px !important;
+        height: 32px !important;
+        padding: 0 4px !important;
+      }
+      .category-title {
+        font-size: 24px !important;
+        line-height: 1.2 !important;
+      }
+      .category-desc {
+        font-size: 13.5px !important;
+        line-height: 1.5 !important;
+      }
+
+      .subpage-toolbar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+      }
+      .t-tabs {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 3px !important;
+        display: flex !important;
+        border-radius: 9999px !important;
+        background: var(--tabs-bar-bg) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      }
+      .t-tab {
+        flex: 1 1 0 !important;
+        min-width: 0 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 4px !important;
+        height: 32px !important;
+        min-height: 32px !important;
+        padding: 0 4px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        border-radius: 9999px !important;
+        white-space: nowrap !important;
+      }
+      .t-tab.is-hidden,
+      .t-tab[style*="display: none"] {
+        display: none !important;
+      }
+      .t-tabs-pill {
+        height: 32px !important;
+        top: 3px !important;
+        border-radius: 9999px !important;
+      }
+      .tab-badge {
+        font-size: 10px !important;
+        padding: 0 4px !important;
+        height: 16px !important;
+      }
+      .search-box-wrap {
+        width: 100% !important;
+        height: 38px !important;
+        box-sizing: border-box !important;
+      }
+      .search-input {
+        font-size: 13px !important;
+        width: 100% !important;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr !important;
+        row-gap: 40px !important;
+      }
+
+      .card-meta {
+        margin-top: 10px !important;
+        padding: 0 4px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        pointer-events: auto !important;
+      }
+    }
+
+    .g4-card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .g4-pic {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+      position: relative;
+      transition: box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+    .g4-card:hover .g4-pic {
+      transform: translateY(-3px);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 12px 28px -4px rgba(0, 0, 0, 0.6);
+    }
+    .card-preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+    .g4-card:hover .card-preview-img {
+      transform: scale(1.04);
+    }
+
+    .card-meta {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 0 2px;
+      min-height: 22px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(4px);
+      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+      pointer-events: none;
+    }
+
+    .g4-card:hover .card-meta {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .card-meta-left {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      min-width: 0;
+    }
+    .card-meta-avatar {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      flex-shrink: 0;
+      object-fit: contain;
+      background: #18181b;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: block;
+    }
+    .card-meta-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: #fafafa;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .price-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2.5px 7.5px;
+      border-radius: 5px;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1.25;
+      flex-shrink: 0;
+      border: none;
+      box-shadow: none;
+    }
+    .price-badge.free {
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+    }
+    .price-badge.semi-free {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+    }
+    .price-badge.paid {
+      background: rgba(192, 132, 252, 0.15);
+      color: #c084fc;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted-foreground);
+      font-size: 14px;
+      display: none;
+    }
+  
+    /* Form controls do not inherit the page font by default. */
+    html, body, button, input, select, textarea {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    }
+
+    body,
+    .subpage-top-bar,
+    .category-title,
+    .category-desc,
+    .t-tabs,
+    .t-tab,
+    .search-box-wrap,
+    .search-input,
+    .g4-pic,
+    .g4-card {
+      transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .subpage-right-cluster {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .subpage-theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      height: 26px;
+      box-sizing: border-box;
+      padding: 0 4px;
+      border-radius: 9999px;
+      background: #000000;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.12),
+        0 2px 6px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.25s ease;
+    }
+    .subpage-theme-toggle:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    [data-theme="light"] .subpage-theme-toggle {
+      background: #e2e8f0;
+      border-color: rgba(0, 0, 0, 0.08);
+      box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.8),
+        0 1px 4px rgba(0, 0, 0, 0.05);
+    }
+    .subpage-theme-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      color: rgba(255, 255, 255, 0.45);
+      transition: all 0.2s ease;
+    }
+    [data-theme="light"] .subpage-theme-icon {
+      color: #64748b;
+    }
+    .subpage-theme-icon.active {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.22);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    }
+    [data-theme="light"] .subpage-theme-icon.active {
+      color: #0f172a;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    [data-theme="light"] .subpage-theme-toggle .sun-icon {
+      color: #0f172a;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    [data-theme="light"] .subpage-theme-toggle .moon-icon {
+      color: #64748b;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    [data-theme="light"],
+    html:not(.dark)[data-theme="light"] {
+      --background: #f8fafc;
+      --foreground: #0f172a;
+      --muted-foreground: #64748b;
+      --card-bg: #ffffff;
+      --card-border: rgba(15, 23, 42, 0.08);
+      --tabs-bar-bg: rgba(15, 23, 42, 0.04);
+      --tabs-pill-bg: #ffffff;
+      --tabs-text-muted: #64748b;
+      --tabs-text-active: #0f172a;
+    }
+
+    [data-theme="light"] body {
+      background-color: #f8fafc !important;
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] ::-webkit-scrollbar-thumb {
+      background: rgba(15, 23, 42, 0.15);
+    }
+    [data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+      background: rgba(15, 23, 42, 0.28);
+    }
+
+    [data-theme="light"] .subpage-back-btn {
+      color: #64748b;
+    }
+    [data-theme="light"] .subpage-back-btn:hover {
+      color: #0f172a;
+    }
+
+    [data-theme="light"] .category-title {
+      color: #0f172a;
+    }
+    [data-theme="light"] .category-desc {
+      color: #64748b;
+    }
+
+    [data-theme="light"] .t-tabs {
+      background: rgba(15, 23, 42, 0.04);
+      border-color: rgba(15, 23, 42, 0.09);
+    }
+    [data-theme="light"] .t-tab {
+      color: #64748b;
+    }
+    [data-theme="light"] .t-tab:not([aria-selected="true"]):hover,
+    [data-theme="light"] .t-tab[aria-selected="true"] {
+      color: #0f172a;
+    }
+    [data-theme="light"] .t-tabs-pill {
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1), 0 1px 2px rgba(15, 23, 42, 0.06);
+    }
+    [data-theme="light"] .tab-badge {
+      background: rgba(15, 23, 42, 0.05);
+      color: #64748b;
+    }
+    [data-theme="light"] .t-tab[aria-selected="true"] .tab-badge {
+      background: rgba(15, 23, 42, 0.09);
+      color: #0f172a;
+    }
+
+    [data-theme="light"] .search-box-wrap {
+      background: rgba(15, 23, 42, 0.04) !important;
+      border-color: rgba(15, 23, 42, 0.12) !important;
+      color: #64748b;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+    [data-theme="light"] .search-box-wrap:focus-within {
+      background: #ffffff !important;
+      border-color: #2563eb !important;
+      color: #0f172a;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12) !important;
+    }
+    [data-theme="light"] .search-input {
+      color: #0f172a;
+    }
+    [data-theme="light"] .search-input::placeholder {
+      color: #94a3b8;
+    }
+
+    [data-theme="light"] .g4-pic {
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06), inset 0 0 0 1px rgba(15, 23, 42, 0.08);
+    }
+    [data-theme="light"] .g4-card:hover .g4-pic {
+      box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.12), inset 0 0 0 1px rgba(15, 23, 42, 0.12);
+    }
+    [data-theme="light"] .card-meta-avatar {
+      background: #ffffff;
+      border-color: rgba(15, 23, 42, 0.1);
+    }
+    [data-theme="light"] .card-meta-title {
+      color: #0f172a;
+    }
+
+    [data-theme="light"] .price-badge.free {
+      background: rgba(22, 163, 74, 0.1);
+      color: #15803d;
+    }
+    [data-theme="light"] .price-badge.semi-free {
+      background: rgba(14, 116, 144, 0.1);
+      color: #0e7490;
+    }
+    [data-theme="light"] .price-badge.paid {
+      background: rgba(147, 51, 234, 0.1);
+      color: #7c3aed;
+    }
+
+    [data-theme="light"] .empty-state {
+      color: #64748b;
+    }
+
+    .subpage-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    /* Accessibility: honour the OS "reduce motion" setting. */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+</style>
+</head>
+<body>
+
+  <div class="subpage-container">
+    <div class="subpage-top-bar">
+      <a href="../" class="subpage-back-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        <span>Overview</span>
+      </a>
+      <div class="subpage-right-cluster">
+        <button class="subpage-theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
+          <span class="subpage-theme-icon sun-icon" title="Light mode">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="subpage-theme-icon moon-icon active" title="Dark mode">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <header class="category-header">
+      <h1 class="category-title">UI Components & Libraries</h1>
+      <p class="category-desc">Production-ready components, copy-paste blocks, and accessible design systems for modern web apps.</p>
+    </header>
+
+    <div class="subpage-toolbar">
+      <div class="t-tabs" role="tablist" id="categoryTabs">
+        <span class="t-tabs-pill" aria-hidden="true"></span>
+        <button class="t-tab" role="tab" aria-selected="true" data-filter="all"><span>All</span> <span class="tab-badge">47</span></button>
+        <button class="t-tab" role="tab" aria-selected="false" data-filter="Free"><span>Free</span> <span class="tab-badge">38</span></button>
+        <button class="t-tab" role="tab" aria-selected="false" data-filter="Semi-free"><span>Semi-free</span> <span class="tab-badge">8</span></button>
+        <button class="t-tab" role="tab" aria-selected="false" data-filter="Paid"><span>Paid</span> <span class="tab-badge">1</span></button>
+      </div>
+
+      <div class="search-box-wrap">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search in this category..." aria-label="Search tools in this category" oninput="handleSearch()">
+      </div>
+    </div>
+
+    <main class="category-grid" id="toolsGrid">
+      <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="shadcn/ui">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/shadcn.webp" alt="shadcn/ui preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://ui.shadcn.com';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/shadcn.webp" alt="shadcn/ui logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=ui.shadcn.com&sz=128';">
+            <span class="card-meta-title">shadcn/ui</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://ui.aceternity.com" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="aceternity ui">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/aceternity.webp" alt="Aceternity UI preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://ui.aceternity.com';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/aceternity.webp" alt="Aceternity UI logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=ui.aceternity.com&sz=128';">
+            <span class="card-meta-title">Aceternity UI</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://motion-primitives.com/" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="motion primitives">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/motion-primitives.webp" alt="Motion Primitives preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://motion-primitives.com/';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/motion-primitives.webp" alt="Motion Primitives logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=motion-primitives.com&sz=128';">
+            <span class="card-meta-title">Motion Primitives</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://Reactbits.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="react bits">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/react-bits.webp" alt="React Bits preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://Reactbits.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/react-bits.webp" alt="React Bits logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=reactbits.dev&sz=128';">
+            <span class="card-meta-title">React Bits</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://21st.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Semi-free" data-name="21st.dev">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/21st.webp" alt="21st.dev preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://21st.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/21st.webp" alt="21st.dev logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=21st.dev&sz=128';">
+            <span class="card-meta-title">21st.dev</span>
+          </div>
+          <span class="price-badge semi-free">Semi-free</span>
+        </div>
+      </a>
+      <a href="https://uiverse.io/" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="uiverse">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/uiverse.webp" alt="Uiverse preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://uiverse.io/';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/uiverse.webp" alt="Uiverse logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=uiverse.io&sz=128';">
+            <span class="card-meta-title">Uiverse</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://animata.design" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="animata">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/animata.webp" alt="Animata preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://animata.design';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/animata.webp" alt="Animata logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=animata.design&sz=128';">
+            <span class="card-meta-title">Animata</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://transitions.dev/" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="transitions.dev">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/transitions.webp" alt="Transitions.dev preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://transitions.dev/';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/transitions.webp" alt="Transitions.dev logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=transitions.dev&sz=128';">
+            <span class="card-meta-title">Transitions.dev</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://cult-ui.com" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="cult ui">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/cult-ui.webp" alt="Cult UI preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://cult-ui.com';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/cult-ui.webp" alt="Cult UI logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=cult-ui.com&sz=128';">
+            <span class="card-meta-title">Cult UI</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://kokonutui.com" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="kokonut ui">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/kokonut-ui.webp" alt="Kokonut UI preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://kokonutui.com';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/kokonut-ui.webp" alt="Kokonut UI logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=kokonutui.com&sz=128';">
+            <span class="card-meta-title">Kokonut UI</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://www.ui-layouts.com/" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="ui layouts">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/ui-layouts.webp" alt="UI Layouts preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://www.ui-layouts.com/';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/ui-layouts.webp" alt="UI Layouts logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=www.ui-layouts.com&sz=128';">
+            <span class="card-meta-title">UI Layouts</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://player.style/" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="player.style">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/player.webp" alt="Player.style preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://player.style/';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/player.webp" alt="Player.style logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=player.style&sz=128';">
+            <span class="card-meta-title">Player.style</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://spell.sh/" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="spell ui">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/spell-ui.webp" alt="Spell UI preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://spell.sh/';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/spell-ui.webp" alt="Spell UI logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=spell.sh&sz=128';">
+            <span class="card-meta-title">Spell UI</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://eldoraui.site" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="eldora ui">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/eldora-ui.webp" alt="Eldora UI preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://eldoraui.site';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/eldora-ui.webp" alt="Eldora UI logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=eldoraui.site&sz=128';">
+            <span class="card-meta-title">Eldora UI</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://fancycomponents.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="fancy components">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/fancy-components.webp" alt="Fancy Components preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://fancycomponents.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/fancy-components.webp" alt="Fancy Components logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=fancycomponents.dev&sz=128';">
+            <span class="card-meta-title">Fancy Components</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://www.beautifului.dev/" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="beautiful ui">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/beui.webp" alt="Beautiful UI preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://www.beautifului.dev/';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/beui.webp" alt="Beautiful UI logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=www.beautifului.dev&sz=128';">
+            <span class="card-meta-title">Beautiful UI</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://evilcharts.com" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="evil charts">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/evil-charts.webp" alt="Evil Charts preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://evilcharts.com';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/evil-charts.webp" alt="Evil Charts logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=evilcharts.com&sz=128';">
+            <span class="card-meta-title">Evil Charts</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://mapcn.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="mapcn">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/mapcn.webp" alt="Mapcn preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://mapcn.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/mapcn.webp" alt="Mapcn logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=mapcn.dev&sz=128';">
+            <span class="card-meta-title">Mapcn</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://toggles.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="toggles.dev">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/toggles.webp" alt="Toggles.dev preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://toggles.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/toggles.webp" alt="Toggles.dev logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=toggles.dev&sz=128';">
+            <span class="card-meta-title">Toggles.dev</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://circleloaders.dominikakissi.com" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="circle loaders">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/circle-loaders.webp" alt="Circle Loaders preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://circleloaders.dominikakissi.com';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/circle-loaders.webp" alt="Circle Loaders logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=circleloaders.dominikakissi.com&sz=128';">
+            <span class="card-meta-title">Circle Loaders</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://motion.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="motion (framer motion)">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/motion.webp" alt="Motion (Framer Motion) preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://motion.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/motion.webp" alt="Motion (Framer Motion) logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=motion.dev&sz=128';">
+            <span class="card-meta-title">Motion (Framer Motion)</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://kinetics.colorion.co" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="kinetics (colorion)">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/kinetics-colorion.webp" alt="Kinetics (Colorion) preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://kinetics.colorion.co';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/kinetics-colorion.webp" alt="Kinetics (Colorion) logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=kinetics.colorion.co&sz=128';">
+            <span class="card-meta-title">Kinetics (Colorion)</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://canvasui.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="canvas ui">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/canvas-ui.webp" alt="Canvas UI preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://canvasui.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/canvas-ui.webp" alt="Canvas UI logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=canvasui.dev&sz=128';">
+            <span class="card-meta-title">Canvas UI</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://motion.zajno.com/" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="zajno motion">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/zajno-motion.webp" alt="Zajno Motion preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://motion.zajno.com/';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/zajno-motion.webp" alt="Zajno Motion logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=motion.zajno.com&sz=128';">
+            <span class="card-meta-title">Zajno Motion</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://neobrutalism.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="neobrutalism components">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/neobrutalism-components.webp" alt="Neobrutalism Components preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://neobrutalism.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/neobrutalism-components.webp" alt="Neobrutalism Components logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=neobrutalism.dev&sz=128';">
+            <span class="card-meta-title">Neobrutalism Components</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://isoglow.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="isoglow">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/isoglow.webp" alt="Isoglow preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://isoglow.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/isoglow.webp" alt="Isoglow logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=isoglow.dev&sz=128';">
+            <span class="card-meta-title">Isoglow</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://uiarc.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="ui arc">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/ui-arc.webp" alt="UI Arc preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://uiarc.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/ui-arc.webp" alt="UI Arc logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=uiarc.dev&sz=128';">
+            <span class="card-meta-title">UI Arc</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://gradientbuttons.colorion.co" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="gradient buttons (colorion)">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/gradient-buttons-colorion.webp" alt="Gradient Buttons (Colorion) preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://gradientbuttons.colorion.co';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/gradient-buttons-colorion.webp" alt="Gradient Buttons (Colorion) logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=gradientbuttons.colorion.co&sz=128';">
+            <span class="card-meta-title">Gradient Buttons (Colorion)</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://microkit.co" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="microkit">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/microkit.webp" alt="Microkit preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://microkit.co';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/microkit.webp" alt="Microkit logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=microkit.co&sz=128';">
+            <span class="card-meta-title">Microkit</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://kobra.systems" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="kobra systems">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/kobra-systems.webp" alt="Kobra Systems preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://kobra.systems';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/kobra-systems.webp" alt="Kobra Systems logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=kobra.systems&sz=128';">
+            <span class="card-meta-title">Kobra Systems</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://Rareui.com" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="rare ui">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/rare-ui.webp" alt="Rare UI preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://Rareui.com';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/rare-ui.webp" alt="Rare UI logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=rareui.com&sz=128';">
+            <span class="card-meta-title">Rare UI</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://reverseui.com" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="reverse ui">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/reverse-ui.webp" alt="Reverse UI preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://reverseui.com';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/reverse-ui.webp" alt="Reverse UI logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=reverseui.com&sz=128';">
+            <span class="card-meta-title">Reverse UI</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://uiable.com" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="uiable">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/uiable.webp" alt="UIable preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://uiable.com';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/uiable.webp" alt="UIable logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=uiable.com&sz=128';">
+            <span class="card-meta-title">UIable</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://ui.nexvyn.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="nexvyn ui">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/nexvyn-ui.webp" alt="Nexvyn UI preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://ui.nexvyn.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/nexvyn-ui.webp" alt="Nexvyn UI logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=ui.nexvyn.dev&sz=128';">
+            <span class="card-meta-title">Nexvyn UI</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://Uilora.com" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="uilora">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/uilora.webp" alt="Uilora preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://Uilora.com';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/uilora.webp" alt="Uilora logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=uilora.com&sz=128';">
+            <span class="card-meta-title">Uilora</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://bencho.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="bencho dev">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/bencho-dev.webp" alt="Bencho Dev preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://bencho.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/bencho-dev.webp" alt="Bencho Dev logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=bencho.dev&sz=128';">
+            <span class="card-meta-title">Bencho Dev</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://smoothui.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="smooth ui">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/smooth-ui.webp" alt="Smooth UI preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://smoothui.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/smooth-ui.webp" alt="Smooth UI logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=smoothui.dev&sz=128';">
+            <span class="card-meta-title">Smooth UI</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://spyui.online" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="spy ui">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/spy-ui.webp" alt="Spy UI preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://spyui.online';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/spy-ui.webp" alt="Spy UI logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=spyui.online&sz=128';">
+            <span class="card-meta-title">Spy UI</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://Libraries.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Free" data-name="libraries.dev">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/libraries.webp" alt="Libraries.dev preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://Libraries.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/libraries.webp" alt="Libraries.dev logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=libraries.dev&sz=128';">
+            <span class="card-meta-title">Libraries.dev</span>
+          </div>
+          <span class="price-badge free">Free</span>
+        </div>
+      </a>
+      <a href="https://codedvisuals.com/" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Semi-free" data-name="coded visuals">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/coded-visuals.webp" alt="Coded Visuals preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://codedvisuals.com/';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/coded-visuals.webp" alt="Coded Visuals logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=codedvisuals.com&sz=128';">
+            <span class="card-meta-title">Coded Visuals</span>
+          </div>
+          <span class="price-badge semi-free">Semi-free</span>
+        </div>
+      </a>
+      <a href="https://www.details.so/vault" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Semi-free" data-name="details vault">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/details-vault.webp" alt="Details Vault preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://www.details.so/vault';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/details-vault.webp" alt="Details Vault logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=www.details.so&sz=128';">
+            <span class="card-meta-title">Details Vault</span>
+          </div>
+          <span class="price-badge semi-free">Semi-free</span>
+        </div>
+      </a>
+      <a href="https://loading.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Semi-free" data-name="loading.dev">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/loading.webp" alt="Loading.dev preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://loading.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/loading.webp" alt="Loading.dev logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=loading.dev&sz=128';">
+            <span class="card-meta-title">Loading.dev</span>
+          </div>
+          <span class="price-badge semi-free">Semi-free</span>
+        </div>
+      </a>
+      <a href="https://animos.app" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Semi-free" data-name="animos">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/animos.webp" alt="Animos preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://animos.app';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/animos.webp" alt="Animos logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=animos.app&sz=128';">
+            <span class="card-meta-title">Animos</span>
+          </div>
+          <span class="price-badge semi-free">Semi-free</span>
+        </div>
+      </a>
+      <a href="https://uselayouts.com" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Semi-free" data-name="uselayouts">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/uselayouts.webp" alt="useLayouts preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://uselayouts.com';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/uselayouts.webp" alt="useLayouts logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=uselayouts.com&sz=128';">
+            <span class="card-meta-title">useLayouts</span>
+          </div>
+          <span class="price-badge semi-free">Semi-free</span>
+        </div>
+      </a>
+      <a href="https://supply.madebyoversight.com" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Semi-free" data-name="oversight supply">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/oversight-supply.webp" alt="Oversight Supply preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://supply.madebyoversight.com';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/oversight-supply.webp" alt="Oversight Supply logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=supply.madebyoversight.com&sz=128';">
+            <span class="card-meta-title">Oversight Supply</span>
+          </div>
+          <span class="price-badge semi-free">Semi-free</span>
+        </div>
+      </a>
+      <a href="https://originkit.dev" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Semi-free" data-name="origin kit">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/origin-kit.webp" alt="Origin Kit preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://originkit.dev';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/origin-kit.webp" alt="Origin Kit logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=originkit.dev&sz=128';">
+            <span class="card-meta-title">Origin Kit</span>
+          </div>
+          <span class="price-badge semi-free">Semi-free</span>
+        </div>
+      </a>
+      <a href="https://motionin.design" target="_blank" rel="noopener noreferrer" class="g4-card" data-status="Paid" data-name="motion in design">
+        <div class="g4-pic">
+          <img decoding="async" src="../assets/previews/motion-in-design.webp" alt="Motion in Design preview" class="card-preview-img" loading="lazy" onerror="this.onerror=null; this.src='https://image.thum.io/get/width/1440/crop/900/noanimate/https://motionin.design';">
+        </div>
+        <div class="card-meta">
+          <div class="card-meta-left">
+            <img decoding="async" src="../assets/logos/motion-in-design.webp" alt="Motion in Design logo" class="card-meta-avatar" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=motionin.design&sz=128';">
+            <span class="card-meta-title">Motion in Design</span>
+          </div>
+          <span class="price-badge paid">Paid</span>
+        </div>
+      </a>
+      <div class="empty-state" id="emptyState" role="status" aria-live="polite">No tools found matching your search.</div>
+    </main>
+  </div>
+
+  <script>
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    const tabsContainer = document.getElementById('categoryTabs');
+    const pill = tabsContainer ? tabsContainer.querySelector('.t-tabs-pill') : null;
+    const tabs = tabsContainer ? tabsContainer.querySelectorAll('.t-tab') : [];
+
+    function updatePill(activeTab, immediate = false) {
+      if (!activeTab || !pill) return;
+      if (immediate) {
+        pill.style.setProperty('transition', 'none', 'important');
+      }
+      pill.style.transform = `translateX(${activeTab.offsetLeft}px)`;
+      pill.style.width = `${activeTab.offsetWidth}px`;
+      if (immediate) {
+        pill.offsetHeight; // force reflow
+        pill.style.removeProperty('transition');
+      }
+    }
+
+    tabs.forEach(tab => {
+      const badge = tab.querySelector('.tab-badge');
+      const count = badge ? parseInt(badge.textContent.trim(), 10) : 0;
+      if (count === 0 && tab.getAttribute('data-filter') !== 'all') {
+        tab.style.display = 'none';
+        tab.classList.add('is-hidden');
+      } else {
+        tab.style.display = '';
+        tab.classList.remove('is-hidden');
+      }
+    });
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+        tab.setAttribute('aria-selected', 'true');
+        updatePill(tab);
+        currentFilter = tab.getAttribute('data-filter') || 'all';
+        applyFilters();
+      });
+    });
+
+    const initialTab = tabsContainer ? (tabsContainer.querySelector('.t-tab[aria-selected="true"]:not([style*="display: none"])') || tabsContainer.querySelector('.t-tab[data-filter="all"]')) : null;
+    if (initialTab) {
+      updatePill(initialTab, true);
+      setTimeout(() => updatePill(initialTab, true), 50);
+      setTimeout(() => updatePill(initialTab, true), 200);
+    }
+
+    window.addEventListener('resize', () => {
+      const cur = tabsContainer ? tabsContainer.querySelector('.t-tab[aria-selected="true"]') : null;
+      if (cur) updatePill(cur, true);
+    });
+
+    function handleSearch() {
+      searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const cards = document.querySelectorAll('.g4-card');
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const cardStatus = (card.getAttribute('data-status') || '').toLowerCase();
+        const cardName = (card.getAttribute('data-name') || '').toLowerCase();
+        const activeFilter = currentFilter.toLowerCase();
+
+        const matchesStatus = (activeFilter === 'all') || (cardStatus === activeFilter);
+        const matchesSearch = !searchQuery || cardName.includes(searchQuery);
+
+        if (matchesStatus && matchesSearch) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      const emptyEl = document.getElementById('emptyState');
+      if (emptyEl) {
+        emptyEl.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    }
+  </script>
+  <script src="../assets/vendor/lenis/lenis.min.js"></script>
+  <script>
+    window.lenis = new Lenis({
+      autoRaf: true,
+      duration: 0.9,
+      easing: (t) => 1 - Math.pow(1 - t, 3),
+      smoothWheel: true,
+      wheelMultiplier: 0.95,
+      touchMultiplier: 1.0,
+    });
+  </script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>
