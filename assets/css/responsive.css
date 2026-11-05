@@ -131,6 +131,11 @@
     justify-content: space-between !important;
   }
 
+  #hero .discord-cta {
+    right: 16px;
+    bottom: 20px;
+  }
+
   .nav-pill-bar {
     gap: 0.5rem !important;
     padding: 0.35rem 0.5rem 0.35rem 0.75rem !important;
@@ -393,6 +398,23 @@
 }
 
 @media (max-width: 480px) {
+  #hero .discord-cta {
+    min-height: 44px;
+    padding: 0.6em 0.85em;
+    border-radius: 18px;
+    font-size: 13px;
+  }
+
+  #hero .discord-cta .svg-wrapper {
+    width: 22px;
+    height: 22px;
+  }
+
+  #hero .discord-cta svg {
+    width: 14px;
+    height: 14px;
+  }
+
   .hero-main-title {
     font-size: 2rem !important;
   }
