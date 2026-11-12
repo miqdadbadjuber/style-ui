@@ -18,7 +18,7 @@
   </a>
 </p>
 
-Style UI lists 57 tools across three categories. Every entry links to the original product, shows a screenshot, and marks its pricing model: Free, Semi-free, or Paid. Nothing is hosted here, and browsing needs no account.
+Style UI lists 60 tools across three categories. Every entry links to the original product, shows a screenshot, and marks its pricing model: Free, Semi-free, or Paid. Nothing is hosted here, and browsing needs no account.
 
 > Official source: [github.com/miqdadbadjuber/style-ui](https://github.com/miqdadbadjuber/style-ui). Official site: [style.ai.id](https://style.ai.id).
 
@@ -26,9 +26,9 @@ Style UI lists 57 tools across three categories. Every entry links to the origin
 
 | Category | Entries | Page |
 | --- | ---: | --- |
-| UI components and libraries | 47 | [style.ai.id/ui-components](https://style.ai.id/ui-components) |
-| Background and shader generators | 6 | [style.ai.id/background-generator](https://style.ai.id/background-generator) |
-| Design.md generators | 5 | [style.ai.id/design-md](https://style.ai.id/design-md) |
+| UI components and libraries | 49 | [style.ai.id/ui-components](https://style.ai.id/ui-components) |
+| Background and shader generators | 7 | [style.ai.id/background-generator](https://style.ai.id/background-generator) |
+| Design.md generators | 4 | [style.ai.id/design-md](https://style.ai.id/design-md) |
 
 Each card carries one of three labels:
 
