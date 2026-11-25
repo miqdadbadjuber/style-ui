@@ -28,7 +28,7 @@ Style UI lists 60 tools across three categories. Every entry links to the origin
 | --- | ---: | --- |
 | UI components and libraries | 49 | [style.ai.id/ui-components](https://style.ai.id/ui-components) |
 | Background and shader generators | 7 | [style.ai.id/background-generator](https://style.ai.id/background-generator) |
-| Design.md generators | 4 | [style.ai.id/design-md](https://style.ai.id/design-md) |
+| Design.md generators | 5 | [style.ai.id/design-md](https://style.ai.id/design-md) |
 
 Each card carries one of three labels:
 
