@@ -18,7 +18,7 @@
   </a>
 </p>
 
-Style UI lists 60 tools across three categories. Every entry links to the original product, shows a screenshot, and marks its pricing model: Free, Semi-free, or Paid. Nothing is hosted here, and browsing needs no account.
+Style UI lists 61 tools across three categories. Every entry links to the original product, shows a screenshot, and marks its pricing model: Free, Semi-free, or Paid. Nothing is hosted here, and browsing needs no account.
 
 > Official source: [github.com/miqdadbadjuber/style-ui](https://github.com/miqdadbadjuber/style-ui). Official site: [style.ai.id](https://style.ai.id).
 
